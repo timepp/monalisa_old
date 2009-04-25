@@ -71,6 +71,7 @@ Func ToggleTopmost()
 EndFunc
 
 Func SetTrans()
+	; 如果已经有一个设置窗口，关掉它并返回
 	Local $winTitle = "B69305EE-CE54-4f58-9F7F-60F501AB5B79"
 	If WinGetHandle($winTitle) <> "" Then
 		WinSetState($winTitle, "", @SW_HIDE)
@@ -94,8 +95,7 @@ Func SetTrans()
 			$trans = $newTrans
 			WinSetTrans($hwnd, "", $trans)
 		EndIf
-		
-		;If $msg = $iSlider Then ExitLoop
+		; 失去焦点时自动关闭
 		If WinGetHandle("[ACTIVE]") <> $hGUI Then ExitLoop
 	WEnd
 	GUIDelete($hGUI)
