@@ -1,0 +1,1394 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: stellarium\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-09 18:31+0100\n"
+"PO-Revision-Date: 2009-02-14 11:52+0000\n"
+"Last-Translator: Yuri <orc_tar_orga@yahoo.com.cn>\n"
+"Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-03-06 13:56+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+msgid " m"
+msgstr " m"
+
+msgid "%1m"
+msgstr "%1m"
+
+msgid ", %1 m"
+msgstr ", %1 米"
+
+msgid "/"
+msgstr "/"
+
+msgid "0"
+msgstr "0"
+
+msgid "1"
+msgstr "1"
+
+msgid "10"
+msgstr "10"
+
+msgid "10000"
+msgstr "10000"
+
+msgid "144000"
+msgstr "144000"
+
+msgid "80"
+msgstr "80"
+
+msgid ":"
+msgstr ":"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Absolute Magnitude: %1"
+msgstr "绝对星等: %1"
+
+msgid "Absolute scale:"
+msgstr "绝对大小:"
+
+msgid "Actual Time"
+msgstr "实际时间"
+
+msgid "Add"
+msgstr "新增"
+
+msgid "Add 1 sidereal day"
+msgstr "增加 1 恒星日"
+
+msgid "Add 1 sidereal week"
+msgstr "增加 1 恒星周"
+
+msgid "Add 1 solar day"
+msgstr "增加 1 太阳日"
+
+msgid "Add 1 solar hour"
+msgstr "增加 1 太阳时"
+
+msgid "Add 1 solar week"
+msgstr "增加 1 太阳周"
+
+msgid "Add to list"
+msgstr "加入列表"
+
+msgid "Administration "
+msgstr "管理设定 "
+
+msgid "Align labels with the horizon"
+msgstr "星空名称文字保持水平"
+
+msgid "All available"
+msgstr "完整显示"
+
+msgid "All star catalogs are up to date."
+msgstr "所有恒星目录都是最新的。"
+
+msgid "Allow keyboard to pan and zoom"
+msgstr "使用键盘移动及缩放画面"
+
+msgid "Allow mouse to pan (drag) and zoom (mousewheel)"
+msgstr "使用鼠标移动及缩放画面 (拖拉滚轮)"
+
+msgid "Altitude (m): "
+msgstr "海拔(米): "
+
+msgid "Altitude:"
+msgstr "海拔:"
+
+msgid "Apparent diameter: %1"
+msgstr "视直径: %1"
+
+msgid "Arrow down to load list."
+msgstr "按向下键以载入列表"
+
+msgid "Arrow keys & left mouse drag"
+msgstr "方向键及滑鼠左键拖曳"
+
+msgid "Art brightness: "
+msgstr "图绘亮度: "
+
+msgid "Atmosphere"
+msgstr "大气层"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Author: "
+msgstr "作者: "
+
+msgid "Auto hide horizontal button bar"
+msgstr "自动隐藏水平工具列"
+
+msgid "Auto hide vertical button bar"
+msgstr "自动隐藏垂直工具栏"
+
+msgid "Auto zoom out returns to initial direction of view"
+msgstr "自动缩小时回到原本的观看方向"
+
+msgid "Az/Alt: %1/%2"
+msgstr "方位角/高度角: %1/%2"
+
+msgid "Azimuthal Grid"
+msgstr "天球方位系统"
+
+msgid "Azimuthal grid"
+msgstr "地平座标"
+
+msgid "CD/DVD Script: "
+msgstr "CD/DVD 脚本: "
+
+msgid "CTRL + Left click"
+msgstr "CTRL + 鼠标左键"
+
+msgid "CTRL + Up/Down"
+msgstr "CTRL + Up/Down键"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Callisto"
+msgstr "木卫四(卡利斯托)"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Cardinal Points"
+msgstr "方位座标"
+
+msgid "Cardinal points"
+msgstr "基点"
+
+msgid "Celestial Sphere"
+msgstr "天球"
+
+msgid "Center on selected object"
+msgstr "将已选物体置中"
+
+msgid "Charon"
+msgstr "冥卫一(卡戎)"
+
+msgid "Checking for new star catalogs..."
+msgstr "检查新的恒星目录..."
+
+msgid "Chinese"
+msgstr "汉语"
+
+msgid "Clear selection"
+msgstr "消除选取"
+
+msgid "Click here to start downloading"
+msgstr "点击这里开始下载"
+
+msgid "Close window when script runs"
+msgstr "执行脚本时关闭窗口"
+
+msgid "Cluster associated with nebulosity"
+msgstr "迷漫星云"
+
+msgid "Colors "
+msgstr "颜色 "
+
+msgid "Configuration"
+msgstr "设定"
+
+msgid "Configuration window"
+msgstr "设定"
+
+msgid "Constellation Art Intensity"
+msgstr "星座图象亮度"
+
+msgid "Constellation Boundaries"
+msgstr "星座边界"
+
+msgid "Constellation Lines"
+msgstr "星座连线"
+
+msgid "Constellation Names"
+msgstr "星座名称"
+
+msgid "Constellation art"
+msgstr "星座图绘"
+
+msgid "Constellation boundaries"
+msgstr "星座边界"
+
+msgid "Constellation labels"
+msgstr "星座标示"
+
+msgid "Constellation lines"
+msgstr "星座连线"
+
+msgid "Constellations"
+msgstr "星座"
+
+msgid "Control"
+msgstr "控制项"
+
+msgid "Correct for light travel time: "
+msgstr "光行进时间修正： "
+
+msgid ""
+"Could not finalize download:\n"
+"Error moving temporary file %1.tmp to %1.cat"
+msgstr ""
+"未能完成下载：\n"
+"错误！更改临时档桉 %1.tmp 为 %1.cat"
+
+msgid "Country:"
+msgstr "国家/地区:"
+
+msgid "Current location information"
+msgstr "目前位置资讯"
+
+msgid "Cursor Timeout: "
+msgstr "光标自动隐藏延时: "
+
+msgid "Cylinder"
+msgstr "圆柱式"
+
+msgid "Date Display Format: "
+msgstr "日期显示格式: "
+
+msgid "Date and Time"
+msgstr "日期及时间"
+
+msgid "Date/time window"
+msgstr "日期/时间"
+
+msgid "Day keys: "
+msgstr "时间定义: "
+
+msgid "Decrease time speed"
+msgstr "减慢时间速度"
+
+msgid "Default options"
+msgstr "预设选项"
+
+msgid "Deimos"
+msgstr "火卫二(戴摩斯)"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Developer: %1"
+msgstr "开发者: %1"
+
+msgid "Developers"
+msgstr "开发者"
+
+msgid "Dim faint stars when a very bright object is visible"
+msgstr "降低明亮天体附近其馀天体的亮度"
+
+msgid "Dione"
+msgstr "土卫四(狄奥妮)"
+
+msgid "Disc viewport"
+msgstr "圆形视角"
+
+msgid "Display Options"
+msgstr "显示选项"
+
+msgid "Display all information available"
+msgstr "显示所有信息"
+
+msgid "Display less information"
+msgstr "显示精简信息"
+
+msgid "Display no information"
+msgstr "不要显示信息"
+
+msgid "Distance: %1 Light Years"
+msgstr "距离：%1 光年"
+
+msgid "Distance: %1AU"
+msgstr "距离: %1天文单位"
+
+msgid "Doc author/developer: %1"
+msgstr "说明文件撰写: %1"
+
+msgid ""
+"Download size: %1MB\n"
+"Star count: %2\n"
+"Magnitude range: %3 - %4"
+msgstr ""
+"下载资料大小：%1MB\n"
+"恒星数目：%2\n"
+"星等范围：%3 - %4"
+
+msgid "Download this file to view even more stars"
+msgstr "下载本档桉可以观看更多恒星"
+
+msgid ""
+"Downloading %1...\n"
+"(You can close this window.)"
+msgstr "下载中 %1 ..."
+
+msgid "Dynamic eye adaptation"
+msgstr "人眼动态视觉调适"
+
+msgid "E"
+msgstr "东"
+
+msgid "Earth"
+msgstr "地球"
+
+msgid "Ecliptic Line"
+msgstr "黄道"
+
+msgid "Ecliptic line"
+msgstr "黄道"
+
+msgid "Ecliptic"
+msgstr "黄道"
+
+msgid "Effects "
+msgstr "效果 "
+
+msgid "Egyptian"
+msgstr "埃及"
+
+msgid "Enable keyboard navigation"
+msgstr "启用键盘导航"
+
+msgid "Enable mouse navigation"
+msgstr "启用鼠标导航"
+
+msgid "Enceladus"
+msgstr "土卫二(恩克拉多斯)"
+
+msgid "Enter the altitude in meter"
+msgstr "输入海拔高度(以m为单位)"
+
+msgid "Equal Area"
+msgstr "相等面积"
+
+msgid "Equator Line"
+msgstr "赤道"
+
+msgid "Equator line"
+msgstr "赤道"
+
+msgid "Equator"
+msgstr "赤道"
+
+msgid "Equatorial Grid"
+msgstr "赤道坐标网格"
+
+msgid "Equatorial J2000 grid"
+msgstr "赤道座标 (J2000)"
+
+msgid "Equatorial grid"
+msgstr "赤道坐标网格"
+
+msgid ""
+"Error checking updates:\n"
+"%1"
+msgstr ""
+"错误！检查更新：\n"
+"%1"
+
+msgid ""
+"Error downloading %1:\n"
+"%2"
+msgstr ""
+"错误！下载中 %1：\n"
+"%2"
+
+msgid ""
+"Error downloading %1:\n"
+"File is corrupted."
+msgstr ""
+"错误！下载中 %1：\n"
+"档桉损坏。"
+
+msgid "Europa"
+msgstr "木卫二(欧罗巴)"
+
+msgid "Exceptional Leonid rate"
+msgstr "超量狮子座流星雨"
+
+msgid "Find Object"
+msgstr "寻找天体"
+
+msgid ""
+"Finished downloading new star catalogs!\n"
+"Restart Stellarium to display them."
+msgstr ""
+"新的恒星目录经已下载完毕！\n"
+"请重新启动 Stellarium 以使用新的目录。"
+
+msgid "Fish-eye"
+msgstr "鱼眼"
+
+msgid "Flip scene horizontally"
+msgstr "水平翻转"
+
+msgid "Flip scene vertically"
+msgstr "垂直翻转"
+
+msgid "Fog"
+msgstr "雾"
+
+msgid "Form"
+msgstr "格式"
+
+msgid "Full-screen mode"
+msgstr "全屏模式"
+
+msgid "Further Reading"
+msgstr "了解更多"
+
+msgid "Galaxy"
+msgstr "星系"
+
+msgid "Ganymede"
+msgstr "木卫三(加尼米德)"
+
+msgid "General "
+msgstr "一般设置 "
+
+msgid "Get catalog %1 of %2"
+msgstr "获取恒星目录 %1/%2"
+
+msgid "Get catalog x of y"
+msgstr "获取恒星目录 x/y"
+
+msgid "Globular cluster"
+msgstr "球状星团"
+
+msgid "Graphic/other designer: %1"
+msgstr "视觉与其他设计: %1"
+
+msgid "Gravity labels"
+msgstr "重力名称文字"
+
+msgid "Great Nebula in Orion"
+msgstr "猎户座大星云"
+
+msgid "Ground"
+msgstr "地面"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Help window"
+msgstr "说明"
+
+msgid "Hide other constellations when you click one"
+msgstr "选中星系后隐藏其他其他星系"
+
+msgid "Hides the mouse cursor when inactive"
+msgstr "静止时隐藏滑鼠指标"
+
+msgid "Highest rate ever (1966 Leonids)"
+msgstr "至今最高频率 (1966 狮子座流星雨)"
+
+msgid "Hour angle/DE: %1/%2"
+msgstr "时角/赤纬: %1/%2"
+
+msgid "Hourly zenith rate:"
+msgstr "流星天顶小时率:"
+
+msgid "Hyperion"
+msgstr "土卫七(海帕里翁)"
+
+msgid "Iapetus"
+msgstr "土卫八(伊阿珀托斯)"
+
+msgid "Images"
+msgstr "图片"
+
+msgid ""
+"In fish-eye projection, or <i>azimuthal equidistant projection</i>, straight "
+"lines become curves when they appear a large angular distance from the "
+"centre of the field of view (like the distortions seen with very wide angle "
+"camera lenses)."
+msgstr ""
+"鱼眼投影法或称为<i>等距方位投影法</i>，当直线距离中心的角度很大时会变成曲线 "
+"(像是从广角镜头看出去所见到的变形)。"
+
+msgid "Increase time speed"
+msgstr "加快时间速度"
+
+msgid "Inuit"
+msgstr "因纽特(爱斯基摩)"
+
+msgid "Invert colors"
+msgstr "对调颜色"
+
+msgid "Io"
+msgstr "木卫一(伊俄)"
+
+msgid "Jupiter"
+msgstr "木星"
+
+msgid "Keys"
+msgstr "按键"
+
+msgid "Korean"
+msgstr "朝鲜语"
+
+msgid "Labels and Markers"
+msgstr "名称及标记"
+
+msgid "Lakota"
+msgstr "拉科塔语"
+
+msgid "Landscape"
+msgstr "背景"
+
+msgid "Landscape: "
+msgstr "地貌： "
+
+msgid "Latitude:"
+msgstr "纬度:"
+
+msgid "Latitude: "
+msgstr "纬度: "
+
+msgid "Left click"
+msgstr "按滑鼠左键"
+
+msgid "License"
+msgstr "授权条款"
+
+msgid "Light Pollution Luminance: "
+msgstr "光污染程度: "
+
+msgid "Light pollution: "
+msgstr "光污染: "
+
+msgid "Limiting Magnitude: "
+msgstr "星等限制: "
+
+msgid "Load Default Configuration: "
+msgstr "载入默认设置: "
+
+msgid "Loading Constellation Art: %1/%2"
+msgstr "载入星座图形: %1/%2"
+
+msgid "Loading NGC catalog: %1/%2"
+msgstr "载入NGC目录: %1/%2"
+
+msgid "Loading catalog %1 from file %2"
+msgstr "由文件 %2 载入目录 %1"
+
+msgid "Local Script: "
+msgstr "本地脚本: "
+
+msgid "Location"
+msgstr "所在位置"
+
+msgid "Location window"
+msgstr "所在地点"
+
+msgid "Location: "
+msgstr "所在位置: "
+
+msgid "Log"
+msgstr "记录"
+
+msgid "Longitude:"
+msgstr "经度:"
+
+msgid "Longitude: "
+msgstr "经度: "
+
+msgid "Magnitude Scaling Multiplier: "
+msgstr "星等放大倍数： "
+
+msgid "Magnitude Sizing Multiplier: "
+msgstr "星等成像加成: "
+
+msgid "Magnitude: <b>%1</b>"
+msgstr "星等: <b>%1</b>"
+
+msgid "Magnitude: <b>%1</b> (B-V: %2)"
+msgstr "视星等: <b>%1</b> (B-V: %2)"
+
+msgid "Main"
+msgstr "主设定画面"
+
+msgid "Manual zoom: "
+msgstr "手动缩放: "
+
+msgid "Markings"
+msgstr "标示"
+
+msgid "Mars"
+msgstr "火星"
+
+msgid "Mask out everything outside a central circle in the main view"
+msgstr "遮去在中间圆形范围以外的星空"
+
+msgid "Maximum Magnitude to Label: "
+msgstr "显示星名的最暗星等: "
+
+msgid "Maximum Nebula Magnitude to Label: "
+msgstr "显示星云名称的最暗星等: "
+
+msgid "Mercator"
+msgstr "麦卡托投影"
+
+msgid "Mercury"
+msgstr "水星"
+
+msgid "Meridian Line"
+msgstr "子午线"
+
+msgid "Meridian line"
+msgstr "子午线"
+
+msgid "Milky Way intensity: "
+msgstr "银河亮度: "
+
+msgid "Mimas"
+msgstr "土卫一(美马斯)"
+
+msgid "Miscellaneous"
+msgstr "其它"
+
+msgid "Moon"
+msgstr "月球"
+
+msgid "Mouse cursor timeout (seconds):"
+msgstr "指定时间后静止时隐藏鼠标(s):"
+
+msgid "Move telescope #0 to selected object"
+msgstr "将望远镜 #0 移动至所选天体"
+
+msgid "Move telescope #1 to selected object"
+msgstr "将望远镜 #1 移动至所选天体"
+
+msgid "Move telescope #2 to selected object"
+msgstr "将望远镜 #2 移动至所选天体"
+
+msgid "Move telescope #3 to selected object"
+msgstr "将望远镜 #3 移动至所选天体"
+
+msgid "Move telescope #4 to selected object"
+msgstr "将望远镜 #4 移动至所选天体"
+
+msgid "Move telescope #5 to selected object"
+msgstr "将望远镜 #5 移动至所选天体"
+
+msgid "Move telescope #6 to selected object"
+msgstr "将望远镜 #6 移动至所选天体"
+
+msgid "Move telescope #7 to selected object"
+msgstr "将望远镜 #7 移动至所选天体"
+
+msgid "Move telescope #8 to selected object"
+msgstr "将望远镜 #8 移动至所选天体"
+
+msgid "Move telescope #9 to selected object"
+msgstr "将望远镜 #9 移动至所选天体"
+
+msgid "Movement and Selection"
+msgstr "移动和选择"
+
+msgid "N"
+msgstr "北"
+
+msgid "Name/City:"
+msgstr "地名/城市:"
+
+msgid "Navajo"
+msgstr "那瓦霍语"
+
+msgid "Navigation"
+msgstr "导航"
+
+msgid "Nebula"
+msgstr "星云"
+
+msgid "Nebula Circles"
+msgstr "星云标记"
+
+msgid "Nebula Names"
+msgstr "星云名称"
+
+msgid "Nebulas"
+msgstr "星云"
+
+msgid "Nebulas background images"
+msgstr "星云背景影像"
+
+msgid "Neptune"
+msgstr "海王星"
+
+msgid "New Location"
+msgstr "新位置"
+
+msgid "Night mode"
+msgstr "夜间模式"
+
+msgid "No description"
+msgstr "没有资讯"
+
+msgid "No shooting stars"
+msgstr "无流星"
+
+msgid "None"
+msgstr "无"
+
+msgid "Normal rate"
+msgstr "日常频率"
+
+msgid "Norse"
+msgstr "挪威"
+
+msgid "OSX Developer: %1"
+msgstr "OSX开发: %1"
+
+msgid "Object Sizing Rule: "
+msgstr "天体大小规则: "
+
+msgid "Open cluster"
+msgstr "疏散星团"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Orthographic"
+msgstr "正角投影"
+
+msgid ""
+"Orthographic projection is related to perspective projection, but the point "
+"of perspective is set to an infinite distance."
+msgstr "正射投影类似透视投影，但是投影点位在无限远的距离。"
+
+msgid "Other"
+msgstr "其他"
+
+msgid "Other:"
+msgstr "其他:"
+
+msgid "Page Up/Down"
+msgstr "Page Up/Page Down键"
+
+msgid "Pan view around the sky"
+msgstr "移动画面"
+
+msgid "Parallax: %1\""
+msgstr "视差: %1\""
+
+msgid "Perspective"
+msgstr "透视效果"
+
+msgid ""
+"Perspective projection keeps the horizon a straight line. The mathematical "
+"name for this projection method is <i>gnomonic projection</i>."
+msgstr ""
+"维持地平线为平直线的透视投影。这种透视方法的数学学名为<i>磬折形投影法</i>."
+
+msgid "Phobos"
+msgstr "火卫一(弗伯斯)"
+
+msgid "Phoebe"
+msgstr "土卫九(菲比)"
+
+msgid "Planet Names"
+msgstr "行星名称"
+
+msgid "Planet Orbits"
+msgstr "行星规道"
+
+msgid "Planet Trails"
+msgstr "行星轨迹"
+
+msgid "Planet:"
+msgstr "行星:"
+
+msgid "Planet: "
+msgstr "行星: "
+
+msgid "Planetarium options"
+msgstr "天文馆选项"
+
+msgid "Planetary nebula"
+msgstr "行星状星云"
+
+msgid "Planets"
+msgstr "行星"
+
+msgid "Planets and satellites"
+msgstr "行星及卫星"
+
+msgid "Planets labels"
+msgstr "行星标签"
+
+msgid "Pluto"
+msgstr "冥王星"
+
+msgid "Polynesian"
+msgstr "玻里尼亚语"
+
+msgid "Praesepe"
+msgstr "鬼宿星团"
+
+msgid "Preset Sky Time: "
+msgstr "预设星空时间: "
+
+msgid "Preset Time"
+msgstr "预设时间"
+
+msgid "Program language"
+msgstr "程序界面语言"
+
+msgid "Project coordinator & lead developer: %1"
+msgstr "计划协调&开发经理: %1"
+
+msgid "Projection"
+msgstr "投影方式"
+
+msgid "Quit"
+msgstr "退出 (Quit)"
+
+msgid "RA/DE (J2000): %1/%2"
+msgstr "赤经/赤纬 (J2000): %1/%2"
+
+msgid "RA/DE (of date): %1/%2"
+msgstr "赤经/赤纬(日期): %1/%2"
+
+msgid "RA/Dec (J2000):"
+msgstr "RA/DEC (J2000):"
+
+msgid "Refresh"
+msgstr "重新整理"
+
+msgid "Relative scale:"
+msgstr "相对大小:"
+
+msgid "Restart the download"
+msgstr "恢复下载"
+
+msgid "Restore defaults"
+msgstr "还原预设值"
+
+msgid "Restore the default settings that came with Stellarium"
+msgstr "恢复 Stellarium 的原有设置"
+
+msgid ""
+"Restoring default settings requires a restart of Stellarium. Saving all the "
+"current options includes the current FOV and direction of view for use at "
+"next startup."
+msgstr ""
+"恢复预设定需要重新启动Stellarium。储存包含目前视野大小、观看方向等所有设定以"
+"用于下次启动。"
+
+msgid "Retry"
+msgstr "重试"
+
+msgid "Rhea"
+msgstr "土卫五(瑞亚)"
+
+msgid "Right click"
+msgstr "按滑鼠右键"
+
+msgid "Rosette nebula"
+msgstr "玫瑰星云"
+
+msgid "Run the selected script"
+msgstr "执行选取的脚本"
+
+msgid "Running script: "
+msgstr "执行脚本： "
+
+msgid "Running script: [none]"
+msgstr "执行脚本：[空白]"
+
+msgid "S"
+msgstr "南"
+
+msgid "Saturn"
+msgstr "土星"
+
+msgid "Save Current Configuration as Default: "
+msgstr "保存目前设置为默认: "
+
+msgid "Save screenshot"
+msgstr "储存画面快照"
+
+msgid "Save settings"
+msgstr "储存设定"
+
+msgid ""
+"Save the settings you've changed this session to be the same the next time "
+"you start Stellarium"
+msgstr "保存更改并在下次启动 Stellarium 时恢复"
+
+msgid "Scale Moon"
+msgstr "放大月球尺寸"
+
+msgid "Screenshot Directory"
+msgstr "截图储存资料夹"
+
+msgid "Screenshots"
+msgstr "屏幕截图"
+
+msgid "Scripts"
+msgstr "脚本"
+
+msgid "Scripts "
+msgstr "脚本 "
+
+msgid "Search window"
+msgstr "搜索"
+
+msgid "Select and exit to run."
+msgstr "选择并在退出后运行"
+
+msgid "Select object"
+msgstr "选取物体"
+
+msgid "Select screenshot directory"
+msgstr "选择储存截图资料夹"
+
+msgid "Select single constellation"
+msgstr "选择单一星座"
+
+msgid "Selected object information"
+msgstr "已选择天体资料"
+
+msgid "Set Location "
+msgstr "位置设置 "
+
+msgid "Set Time "
+msgstr "时间设置 "
+
+msgid "Set Time Zone: "
+msgstr "时区设置: "
+
+msgid "Set UI Locale: "
+msgstr "设置界面语言 "
+
+msgid "Set home planet to selected planet"
+msgstr "将选择的行星设为预设位置"
+
+msgid "Set normal time rate"
+msgstr "正常时间速度"
+
+msgid "Set time rate to zero"
+msgstr "将时间流速设定为零"
+
+msgid "Set time to now"
+msgstr "跳至当前时刻"
+
+msgid ""
+"Sets the simulation time to the next instance of this time of day when "
+"Stellarium starts"
+msgstr "下次启动 Stellarium 时设定此时间为模拟时间"
+
+msgid "Shooting Stars"
+msgstr "流星"
+
+msgid "Short"
+msgstr "简短显示"
+
+msgid "Show art"
+msgstr "显示星座图绘"
+
+msgid "Show atmosphere"
+msgstr "显示大气层"
+
+msgid "Show boundaries"
+msgstr "显示星座界线"
+
+msgid "Show flip buttons"
+msgstr "显示翻转按键"
+
+msgid "Show fog"
+msgstr "显示雾气"
+
+msgid "Show ground"
+msgstr "显示地面"
+
+msgid "Show labels"
+msgstr "显示星座名称"
+
+msgid "Show lines"
+msgstr "显示星座连线"
+
+msgid "Show planet markers"
+msgstr "显示行星标记"
+
+msgid "Show planet orbits"
+msgstr "显示行星轨道"
+
+msgid "Show planets"
+msgstr "显示行星"
+
+msgid "Show: "
+msgstr "显示: "
+
+msgid "Shut Down: "
+msgstr "关闭程序: "
+
+msgid "Sidereal"
+msgstr "恒星时"
+
+msgid "Simulate light speed"
+msgstr "模拟光速"
+
+msgid "Size: %1"
+msgstr "大小: %1"
+
+msgid "Sky"
+msgstr "天空"
+
+msgid "Sky Culture: "
+msgstr "星空文化插图: "
+
+msgid "Sky Language: "
+msgstr "天文术语： "
+
+msgid "Sky Time At Start-up: "
+msgstr "启动时的星空时间: "
+
+msgid "Sky Time: "
+msgstr "星空时间: "
+
+msgid "Sky and viewing options window"
+msgstr "星空及显示"
+
+msgid "Solar System Body: "
+msgstr "观测者所处星体: "
+
+msgid "Solar System Observer"
+msgstr "太阳系全览点"
+
+msgid "Space"
+msgstr "太空"
+
+msgid "Spectral Type: %1"
+msgstr "光普类型： %1"
+
+msgid "Spheric mirror distortion"
+msgstr "球面镜扭曲"
+
+msgid ""
+"Spheric mirror distortion is used when projecting Stellarium onto a spheric "
+"mirror for low-cost planetarium systems."
+msgstr "球面镜扭曲 (使用 Stellarium 做为低成本星象投影系统的场合)"
+
+msgid "Standard Perseids rate"
+msgstr "标准英仙座流星雨频率"
+
+msgid "Star Value Multiplier: "
+msgstr "星体值倍数： "
+
+msgid "Star catalog updates"
+msgstr "恒星目录更新"
+
+msgid "Starlore"
+msgstr "星空术语"
+
+msgid "Stars"
+msgstr "恒星"
+
+msgid "Stars "
+msgstr "恒星 "
+
+msgid "Starts Stellarium at system clock date and time"
+msgstr "以系统设定的时间启动"
+
+msgid "Startup FOV: %1%2"
+msgstr "启动时的视角: %1%2"
+
+msgid "Startup FOV: XX"
+msgstr "起始视场: XX"
+
+msgid "Startup date and time"
+msgstr "启动时的日期及时间"
+
+msgid "Startup direction of view Az/Alt: %1/%2"
+msgstr "启动时的地平坐标方位角/高度角: %1/%2"
+
+msgid "Startup direction of view: xxxx"
+msgstr "起始观察方向: xxxx"
+
+msgid "Stellarium"
+msgstr "Stellarium"
+
+msgid "Stellarium Help"
+msgstr "Stellarium说明"
+
+msgid "Stereographic"
+msgstr "立体绘图法"
+
+msgid ""
+"Stereographic projection is known since the antiquity and was originally "
+"known as the planisphere projection. It preserves the angles at which curves "
+"cross each other but it does not preserve area."
+msgstr ""
+"立体绘图法原称为星座盘投影法。他保留曲线交汇的角度而不是面积的大小。（另译为"
+"赤平投影法）"
+
+msgid "Stop a running script"
+msgstr "停止执行中的脚本"
+
+msgid "Stop the download. You can always restart it later"
+msgstr "停止下载(你可以随时恢复)"
+
+msgid "Subtract 1 sidereal day"
+msgstr "减少 1 恒星日"
+
+msgid "Subtract 1 sidereal week"
+msgstr "减少 1 恒星周"
+
+msgid "Subtract 1 solar day"
+msgstr "减少 1 太阳日"
+
+msgid "Subtract 1 solar hour"
+msgstr "减少1 太阳时"
+
+msgid "Subtract 1 solar week"
+msgstr "减少 1 太阳周"
+
+msgid "Sun"
+msgstr "太阳"
+
+msgid "Switch between equatorial and azimuthal mount"
+msgstr "赤道仪/水平仪切换"
+
+msgid "System date and time"
+msgstr "系统日期及时间"
+
+msgid "System date at:"
+msgstr "系统日期:"
+
+msgid "Telescope Control"
+msgstr "望远镜控制"
+
+msgid "Tethys"
+msgstr "土卫三(特提斯)"
+
+msgid "The Stellarium User Guide"
+msgstr "Stellarium用户指南"
+
+msgid "The direction you're looking when Stellarium starts"
+msgstr "Stellarium 默认的地理位置"
+
+msgid ""
+"The following links are external web links, and will launch your web "
+"browser:\n"
+msgstr "以下为外部网际网路连结，浏览器将被启动:\n"
+
+msgid ""
+"The full name of this projection method is, <i>Lambert azimuthal equal-area "
+"projection</i>. It preserves the area but not the angle."
+msgstr ""
+"这种投影法的全名是 <i>Lambert 等面积方位投影法</i>. 这种投影法是维持面积而非"
+"角度。"
+
+msgid ""
+"The full name of this projection mode is <i>cylindrical equidistant "
+"projection</i>. With this projection all parallels are equally spaced."
+msgstr "这个投影法的全名是<i>等距圆柱投影</i>。 所有经纬线的投影都是相同距离。"
+
+msgid ""
+"The mercator projection is one of the most used world map projection. It "
+"preserves direction and shapes but distorts size, in an increasing degree "
+"away from the equator."
+msgstr ""
+"麦卡托式是最常用的世界地图投影法。它保留方向及形状但是大小会有失真，失真度随"
+"着和赤道的距离增加而上升。"
+
+msgid "The width of your view when Stellarium starts"
+msgstr "Stellarium 默认的视野宽度"
+
+msgid "This system does not support OpenGL."
+msgstr "系统不支援OpenGL"
+
+msgid "Time Display Format: "
+msgstr "时间显示格式: "
+
+msgid "Titan"
+msgstr "土卫六(泰坦)"
+
+msgid "Toggle vertical and horizontal image flip buttons."
+msgstr "转换垂直及水平翻转按钮"
+
+msgid "Toggle visibility of toolbars"
+msgstr "条改工具列的透明度"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Track object"
+msgstr "追随物体"
+
+msgid "Tupi-Guarani"
+msgstr "图皮-瓜拉尼诸语(南美)"
+
+msgid "Twinkle:"
+msgstr "闪烁:"
+
+msgid "Twinkling: "
+msgstr "闪烁: "
+
+msgid "Type: <b>%1</b>"
+msgstr "种类: <b>%1</b>"
+
+msgid "USB Script: "
+msgstr "USB 脚本: "
+
+msgid "Undocumented type"
+msgstr "未收录类型"
+
+msgid "Unknown"
+msgstr "不明"
+
+msgid "Update me via Internet: "
+msgstr "在线更新: "
+
+msgid "Uranus"
+msgstr "天王星"
+
+msgid "Use a specific date and time when Stellarium starts up"
+msgstr "启动Stellarium时，使用特定时间及日期"
+
+msgid "Use as default"
+msgstr "设成预设值"
+
+msgid "Use associated language for sky labeling"
+msgstr "使用此文化的语言标示星空"
+
+msgid "Use associated planet and position"
+msgstr "使用与此地景关联的位置与行星"
+
+msgid "Use this landscape as default"
+msgstr "将此背景设定为预设值"
+
+msgid "Use this sky culture as default"
+msgstr "将此星空述语设为预设值"
+
+msgid "Venus"
+msgstr "金星"
+
+msgid "Verifying file integrity..."
+msgstr "正在检查档桉完整性..."
+
+msgid "View"
+msgstr "显示"
+
+msgid "W"
+msgstr "西"
+
+msgid "Western"
+msgstr "西方"
+
+msgid ""
+"When enabled, the \"auto zoom out\" key will also set the initial viewing "
+"direction"
+msgstr "启动后，「自动缩小」键亦会将还原观测方向。"
+
+msgid "Windows"
+msgstr "窗口"
+
+msgid ""
+"You can enter values in decimal degrees, or using dms format, for example: "
+"+1d 12m 8s"
+msgstr "您可以输入十进位度数，或是使用 dms 格式，例如: +1d 12m 8s"
+
+msgid "Zoom Duration: "
+msgstr "缩放持续时间: "
+
+msgid "Zoom in on selected object"
+msgstr "放大已选的物体"
+
+msgid "Zoom in/out"
+msgstr "放大/缩小"
+
+msgid "Zoom out"
+msgstr "缩小"
+
+msgid "nebula"
+msgstr "星云"
+
+msgid "use current"
+msgstr "使用现在的设定"
+
+msgid "xxx"
+msgstr "xxx"
+
+msgid ""
+"{Bug reporting system} - if something doesn't work properly and is not "
+"listed in the FAQ list, you can open bug reports here."
+msgstr ""
+"{程序错误汇报系统} - 如发现本程序有任何问题，而并未列在 FAQ 列表中，你可以在"
+"这里汇报。"
+
+msgid ""
+"{Feature request system} - if you have an idea for a new feature, send it to "
+"us. We can't promise to implement every idea, but we appreciate the feedback "
+"and review the list when we are planning future features."
+msgstr ""
+"{功能需求系统} - 若您有任何新功能想法，请告诉我们。我们不能承诚满足大家的需"
+"求，但我们感激您的意见回馈并在规划未来版本时考虑。"
+
+msgid "{Forums} - discuss Stellarium with other users."
+msgstr "{讨论区} - 在此处和其他爱好者讨论Stellarium。"
+
+msgid "{Frequently Asked Questions} about Stellarium.  Answers too."
+msgstr "{FAQ} -关于Stellarium 的常见问答"
+
+msgid ""
+"{Support ticket system} - if you need help using Stellarium, post a support "
+"request here and we'll try to help."
+msgstr ""
+"{技术支持系统} - 若您在使用 Stellarium 时需要帮忙，请至该处提出要求，我们会尽"
+"量帮忙。"
+
+msgid ""
+"{The Stellarium Wiki} - General information.  You can also find user-"
+"contributed landscapes and scripts here."
+msgstr ""
+"{Stellarium Wiki} - 一般资料，你亦可以在这里找到由使用者制作的背景及脚本。"
+
+msgid "Vesta"
+msgstr "灶神星"
+
+msgid "Triangulum galaxy"
+msgstr "三角座星系"
+
+msgid "Great Nebula in Andromeda"
+msgstr "仙女座大星云"
+
+msgid "Cocoon nebula"
+msgstr "茧星云"
+
+msgid "Wild Duck cluster"
+msgstr "野鸭星团"
+
+msgid "Eagle nebula"
+msgstr "天鹰座星云"
+
+msgid "Butterfly cluster"
+msgstr "蝴蝶星团"
+
+msgid "Southern Pleiades"
+msgstr "南昴宿星团"
+
+msgid "Ceres"
+msgstr "谷神星"
+
+msgid "Pallas"
+msgstr "智神星"
+
+msgid "Juno"
+msgstr "婚神星"
+
+msgid "C/2006 P1 (McNaught)"
+msgstr "麦克诺特彗星"
+
+msgid "Cone nebula"
+msgstr "锥状星云"

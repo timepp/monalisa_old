@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ProtocolView</title>
+<style type="text/css">
+table {
+	border: 1 #CCCCCC solid;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+td {
+	border: 1 #CCCCCC solid;
+	border-collapse: collapse;
+	font-family: 宋体, Arial, Helvetica, sans-serif;
+}
+button { padding: 2px; border: 1px solid #008000; font-family: 宋体; font-size: medium; width: 100%; }
+input { padding: 2px; border: 1px solid #000080; font-family: 宋体; font-size: medium; width: 100%; }
+</style>
+
+<script type="text/javascript" language="javascript" src="common.js"></script>
+<script type="text/javascript" language="javascript">
+function load_file()
+{
+	var cc = currfile;
+	parse_file(currfile.value);
+}
+function correct_content(content)
+{
+	var new_content = "";
+
+	// XLog的BUG，里面有\0
+	for (var i = 0; i < content.length; i++)
+	{
+		var chr = content.charAt(i);
+		if (chr != 0)
+		{
+			new_content += chr;
+		}
+	}
+
+	return new_content;
+}
+
+function parse_file(filename)
+{
+	var cc = GetBinaryFileContent(filename, 0, 100);
+	alert(cc);
+	return;
+	var content = GetTextFileContent(filename);
+	// 子项matcher
+	var m_time = "[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}";
+	var m_ps   = "发送请求|发送了同步型请求|接收到服务器发来的应答";
+	var m_word = "[^ \\n]+";
+	var m_exp = "(#t) (#ps)：\\n?(#w) (#w) #w (#w)\\n(code:(#w)\\n)?method:(#w)(.|\n)+?(?=#t)".replace(/#t/g, m_time).replace(/#ps/g, m_ps).replace(/#w/g, m_word);
+//	alert(m_exp);
+	var matcher = new RegExp(m_exp, "gm");
+    while ((arr = matcher.exec(content)) != null)
+    {
+    	var dir = "-->";
+    	if (arr[2] == "接收到服务器发来的应答") dir = "<--";
+    	insert_row(arr[1], dir, arr[3] + ":" + arr[8], arr[4], arr[5], arr[0]);
+	}
+}
+function insert_row(time, dir, request, ver, seq, detail)
+{
+	var oRow = data_tbl.insertRow();
+	oRow.style.backgroundColor = (dir == "-->")? "#ffffff" : "#ffcccc";
+	
+	var oCell;
+	
+	oCell = oRow.insertCell();
+	SetText(oCell, time);
+	
+	oCell = oRow.insertCell();
+	SetText(oCell, dir);
+	
+	oCell = oRow.insertCell();
+	SetText(oCell, request);
+	
+	oCell = oRow.insertCell();
+	SetText(oCell, ver);
+	
+	oCell = oRow.insertCell();
+	SetText(oCell, seq);
+	
+	
+	oCell = oRow.insertCell();
+	oCell.innerText = detail;
+	
+	oCell = oRow.insertCell();
+	oCell.style.display = "none";
+
+}
+</script>
+
+
+</head>
+
+
+<body onkeydown="if (event.keyCode == 27) window.close()">
+<table>
+
+	<tr height="1"><td><table>
+		<tr>
+			<td width="100">当前文件：</td>
+			<td><input id="currfile" type=file></td>
+			<td width="100"><button onclick="load_file()">分析</button></td>
+		</tr>
+	</table></td></tr>
+	
+	<tr><td><table id="data_tbl">
+	<tr>
+		<td style="width:100px">时间戳</td>
+		<td width="50">方向</td>
+		<td width="150">请求</td>
+		<td width="50">版本</td>
+		<td width="50">seq</td>
+		<td>详细数据</td>
+		<td style="display:none">隐藏数据</td>
+	</tr>
+	</table></td></tr>
+	
+</table>
+</body>
+</html>

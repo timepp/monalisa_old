@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="tp::cfmt&lt;T, buf_size&gt;">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::hex_dumper&lt;T, buf_size&gt;">
+    <Position X="3.25" Y="0.5" Width="5.5" />
+    <Members>
+      <Method Name="_hex_dump" Hidden="true" />
+      <Method Name="get_line_size" Hidden="true" />
+      <Field Name="m_gap" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAACCAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ed_win&lt;T, buf_size&gt;">
+    <Position X="3" Y="4.25" Width="2.75" />
+    <Members>
+      <Method Name="build_desc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ed_com&lt;T, buf_size&gt;">
+    <Position X="6.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ed_std&lt;T, buf_size&gt;">
+    <Position X="0.75" Y="4.25" Width="1.75" />
+    <Members>
+      <Method Name="build_desc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::format_shim&lt;T, size&gt;">
+    <Position X="3" Y="2.5" Width="2.75" />
+    <Members>
+      <Method Name="~format_shim" Hidden="true" />
+      <Method Name="format_shim" Hidden="true" />
+      <Method Name="free" Hidden="true" />
+      <Method Name="init" Hidden="true" />
+      <Field Name="m_buf" Hidden="true" />
+      <Field Name="m_buf_content" Hidden="true" />
+      <Field Name="m_buf_size" Hidden="true" />
+      <Method Name="resize" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ABIAAgIAAAAAEAAAAAACABAAAAAAAAoAAQAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\format_shim_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::log_device">
+    <Position X="1.25" Y="6.75" Width="4.25" />
+    <Members>
+      <Method Name="~log_device" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAYgAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::log_indenter">
+    <Position X="6.25" Y="7.5" Width="2.25" />
+    <Members>
+      <Method Name="~log_indenter" Hidden="true" />
+      <Field Name="m_indent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAABAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ld_console" Collapsed="true">
+    <Position X="5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAACAAAkAAAAAAAAAAA4gABAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log_device.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ld_mem_log" Collapsed="true">
+    <Position X="7.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAACAAAAAEAAAAAQAAAYgAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log_device.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ld_debug_output" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAYgAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log_device.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::ld_file" Collapsed="true">
+    <Position X="2.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAACAAAAAAAABAAAAAAYAAIAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log_device.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::msg_crack" Collapsed="true">
+    <Position X="5" Y="14.25" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="tp::msg_crack::mnmap_t" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\msg_crack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAQAAgABAAAIAAAAAAAAAAAI=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\msg_crack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::tstring" Collapsed="true">
+    <Position X="3.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAAgAAAAAAAAAgAIAAAgAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\tstring.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tp::_inner::logger">
+    <Position X="0.5" Y="10.25" Width="7.25" />
+    <Members>
+      <Method Name="~logger" Hidden="true" />
+      <Method Name="instance" Hidden="true" />
+      <Method Name="logger" Hidden="true" />
+      <Field Name="m_cs" Hidden="true" />
+      <Field Name="m_indent" Hidden="true" />
+      <Field Name="m_ld_set" Hidden="true" />
+      <Field Name="m_main_thread_id" Hidden="true" />
+      <Field Name="m_show_millisec" Hidden="true" />
+      <Field Name="m_ti_map" Hidden="true" />
+      <Field Name="m_type_name" Hidden="true" />
+      <Method Name="operator =" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Struct Name="tp::_inner::logger::device_info" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="tp::_inner::logger::ld_set_t" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="tp::_inner::logger::thread_info" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="tp::_inner::logger::ti_map_t" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAggEAAiAAAAAAGAAAACQABAABICBAAEAAAQAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="base64_codec">
+    <Position X="0.5" Y="15.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAQAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\base64_codec.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="critical_lock" Collapsed="true">
+    <Position X="3.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAACAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\lock.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ossocket" Collapsed="true">
+    <Position X="5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQACCCAQIEAQAAAoAMAhQAACAIAAAAAAIBAIAAABiQ=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\oss.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="tp::aw" Collapsed="true">
+    <Position X="5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAgAAAAAAAAAAAAAAgCAAAAAYAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\api_wrapper.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tp::_inner::call_on_ret_base" Collapsed="true">
+    <Position X="0.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\auto_release.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tp::_inner::call_on_ret&lt;F, P&gt;" Collapsed="true">
+    <Position X="0.5" Y="14.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAgAoAAAAAAAAAAAA=</HashCode>
+      <FileName>d:\timepp\Documents\handyrun\timepp_lib\trunk\include\auto_release.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Microsoft YaHei" Size="9" />
+</ClassDiagram>

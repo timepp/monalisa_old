@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>准入测试</title>
+<style type="text/css">
+table { padding:0px; margin:0px; width: 100%; height:100%; font-family: 宋体, Arial, Helvetica, sans-serif;}
+button { padding: 2px; border: 1px solid #008000; font-family: 宋体; font-size: medium; width: 100%; }
+span.tip {
+	border: thin #808080 solid;
+	background-color: #FFFF99;
+	width: 100%;
+}
+span.log {
+	border: thin #808080 solid;
+	width: 100%;
+	height: 100%;
+}
+textarea {
+	display:none;
+}
+</style>
+</head>
+<script type="text/javascript" language="javascript" src="common.js"></script>
+<script type="text/javascript" language="javascript">
+var hidir = "C:\\Program Files\\baidu\\Baidu Hi\\";
+var usrdir = "F:\\MyDocuments\\Baidu\\Baidu Hi\\timepp\\";
+var opdepth = 0;
+var opFunc = Prepare;
+
+function Log(text)
+{
+	var oRow = tbl_log.insertRow();
+	var oCell1 = oRow.insertCell();
+	var oCell2 = oRow.insertCell();
+	var oCell3 = oRow.insertCell();
+
+	oCell1.width = 80;
+	SetText(oCell1, GetCurTime());
+
+	for (var i = 0; i < opdepth; i++) text = "　　" + text;
+	SetText(oCell2, text);
+
+	return oCell3;
+}
+function LogOpOK(oCell)
+{
+	SetText(oCell, "完成", "darkgreen");
+}
+function LogOpErr(oCell, errText)
+{
+	SetText(oCell, errText, "red");
+}
+function SetUserTip(text)
+{
+	user_tip.innerText = text;
+}
+function SetNextStep(tip, func)
+{
+	opFunc = func;
+	SetUserTip(tip);
+}
+function RunOp(opDesc, strict, opFunc)
+{
+	var ap = 3; // opFunc的第一个参数位置
+	var oCell = Log(opDesc + "...");
+	opdepth++;
+	
+	var ret = true;
+	try	
+	{
+		switch (arguments.length)
+		{
+		case 2: opFunc(); break;
+		case 3: opFunc(arguments[ap]); break;
+		case 4: opFunc(arguments[ap], arguments[ap+1]); break;
+		case 5: opFunc(arguments[ap], arguments[ap+1], arguments[ap+2]); break;
+		case 6: opFunc(arguments[ap], arguments[ap+1], arguments[ap+2], arguments[ap+3]); break;
+		case 7: opFunc(arguments[ap], arguments[ap+1], arguments[ap+2], arguments[ap+3], arguments[ap+4]); break;
+		default: debugger;
+		} 
+	}
+	catch (e) 
+	{
+		ret = false;
+		LogOpErr(oCell, GetErrDesc(e));
+		if (strict)
+		{
+			opdepth--;
+			throw e;
+		}
+	}
+	if (ret) LogOpOK(oCell);
+
+	opdepth--;
+}
+
+function ForceMoveFile(s, d)
+{
+	if (fso.FileExists(s))
+	{
+		RunOp("删除目标文件", 0, function(a,b){fso.DeleteFile(a,b);}, d, true);
+		RunOp("移动文件", 0, function(a,b){fso.MoveFile(a,b);}, s, d);
+	}
+	else
+	{
+		throw "源文件不存在";
+	}
+}
+
+function Prepare()
+{
+/*
+1. 程序目录中加debugset.ini(打开写日志选项)
+2. 改名timepp的msg20.db成msg20.db.cur
+3. 删除msg20.db.tmp, 删除XLog.txt	
+打开百度hi
+*/
+	RunOp("更新DebugSet.ini", 1,
+		function() {
+			var ofile = fso.OpenTextFile(hidir + "DebugSet.ini", ForWriting, true);
+			ofile.Write(debugset_content.value);
+			ofile.Close();
+		}
+	);
+	RunOp("检查msg.db", 1, function() {if (!fso.FileExists(usrdir + "msg.db")) throw "msg.db不存在";});
+	RunOp("把timepp用户的msg20.db改名成msg20.db.cur", 1, ForceMoveFile, usrdir + "msg20.db", usrdir + "msg20.db.cur");
+	RunOp("运行百度Hi", 1, RunCommand, hidir + "BaiduHi.exe");
+	
+	SetNextStep("请登录百度HI", ViewXLog);
+}
+
+function ViewXLog()
+{
+	SetNextStep("解密XLog.txt到XLog1.txt，查看里面是否有机器码信息（搜索pc_code）。 [A1]", Step1);
+}
+
+function Step1()
+{
+	SetNextStep("打开主面板的消息管理器，显示升级对话框，观察是否正常。点取消，不升级。打开消息管理器，看是否正常。[B1.3 B2 B5 B9.1]", Step2);
+}
+
+function Step2()
+{
+	SetNextStep("关消息管理器，从联系人右键菜单打开消息管理器，不升级。打开消息管理器看是否正常，展开左侧树是否正常。[B1.4 B10.1 B11]", Step3);
+}
+
+function Step3()
+{
+	SetNextStep("从主菜单中打开消息管理器，选择升级，看升级进度是否正常。中间点取消。[B3 B6 B9.2]", Finish);
+}
+
+function Finish()
+{
+/*
+10.关闭百度HI，恢复msg20.db.cur到msg20.db
+*/
+	RunOp("恢复msg20.db", 1, ForceMoveFile, usrdir + "msg20.db.cur", usrdir + "msg20.db");
+	Log("准入测试完成");
+	btn_op.innerText = "关闭";
+	SetNextStep("", Close);
+}
+
+function Close()
+{
+	window.close();
+}
+
+function RunTest()
+{
+	try
+	{
+		opFunc();
+	}
+	catch (e)
+	{
+		alert("执行期间出现错误:" + GetErrDesc(e) + ", 问题解决后点\"下一步\"重新执行本次操作");
+	}
+}
+
+</script>
+
+<body onkeydown="if (event.keyCode == 27) window.close()">
+<table>
+	<tr width="100%" height="1">
+		<td width="100%">
+			<span id="user_tip" class="tip">点击“下一步”继续</span>
+		</td>
+		<td>
+			<button id="btn_op" style="width: 100px" onclick="RunTest()">下一步</button>
+		</td>
+	</tr>
+	<tr height="1">
+		<td>日志：</td>
+	</tr>
+	<tr>
+		<td style="vertical-align: top;" colspan="2">
+			<table style="border-style: solid; border-width: thin;">
+				<tr><td height="1">
+					<table id="tbl_log" border="1" style="border-style: solid; border-collapse:collapse;"></table>
+				</td></tr>
+				<tr><td></td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<textarea id="debugset_content">
+[XLogSet]
+XLogUser=-1
+XLogCmdUser=-1
+XLogClass=0
+SHOW_CMDWIN=0
+</textarea>
+
+</body></html>

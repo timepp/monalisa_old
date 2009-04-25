@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>CONFIG APPLY</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<HTA:APPLICATION ID="thisHTA">
+<style type="text/css">
+button { width:120px; margin-bottom:5px; padding: 2px; border: 1px solid #008000; font-family: 宋体; font-size: medium;}
+.logwin { font-family: 宋体, Arial, Helvetica, sans-serif; }
+table { padding:0px; margin:0px; width: 100%; height:100%; border-collapse:collapse; }
+</style>
+
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+	var cmds = thisHTA.commandLine.split(" ");
+	// 提升自身权限，根据命令行参数判断自己是什么权限
+	if (cmds.length == 1 || cmds[1] != "uac")
+	{
+		var app = new ActiveXObject("Shell.Application");
+		app.ShellExecute("mshta.exe", cmds[0] + " uac", "", "runas", 1);
+		window.close();
+	}
+</script>
+
+<script type="text/javascript">
+var gs_path = "d:\\greensoft";
+
+// 定义操作开始========================================================================
+var ops = new Array;
+
+var op = new Object;
+ops.push(op);
+op.name = "设置环境变量";
+op.desc = "&nbsp;";
+op.param = "%GS%\\svn\\bin;%GS%\\cmdline;".replace(/%GS%/g, gs_path);
+op.param_tip = "运行前您可以修改需要附加的环境变量：";
+op.status = function(){}; // TODO 是否应该有一个status函数
+op.func = function()
+{
+	var items = WMI().ExecQuery("Select * from Win32_Environment Where Name = 'PATH'");
+	var item = new Enumerator(items).item();
+	Log("旧路径：" + item.VariableValue);
+	Log("需要增加：" + this.param);
+	
+	var val = item.VariableValue;
+	if (val.substr(val.length-1, 1) != ";") val += ";";
+	var ps = this.param.split(";");
+	for (var i = 0; i < ps.length; i++)
+	{
+		if (ps[i] != "" && val.indexOf(ps[i]) == -1) val += ps[i] + ";";
+	}
+	item.VariableValue = val;
+	item.Put_();
+	Log("新路径：" + item.VariableValue);
+};
+
+var op = new Object;
+ops.push(op);
+op.name = "设置2";
+op.desc = "d";
+op.param = "c";
+op.param_tip = "sss";
+op.func = function()
+{
+};
+
+var op = new Object;
+ops.push(op);
+op.func = function()
+{
+	window.close();
+};
+
+// 定义操作结束========================================================================
+
+var curr_op = 0;
+
+function Init()
+{
+	curr_op = 0;
+	PrepareRun(curr_op);
+}
+function PrepareRun(index)
+{
+	var op = ops[index];
+	if (index < ops.length - 1)
+	{
+		document.getElementById("operation").innerHTML = "当前操作：" + op.name;
+		document.getElementById("desc").innerHTML = op.desc;
+		document.getElementById("op_param_tip").innerHTML = op.param_tip;
+		document.getElementById("op_param").innerText = op.param;
+	}
+	else
+	{
+		document.getElementById("btn_run").innerHTML = "关闭";
+	}
+}
+function Run()
+{
+	ops[curr_op].func();
+	PrepareRun(++curr_op);
+}
+function Log(text)
+{
+	var oLog = document.getElementById("log");
+	oLog.innerHTML += PlainTextToHTML(text);
+	if (text.charCodeAt(text.length - 1) != 10)
+	{
+		oLog.innerHTML += "<br/>";
+	}
+}
+function ClearLog()
+{
+	document.getElementById("log").innerHTML = "";
+}
+</script>
+</head>
+
+<body onload="Init()" onkeydown="if (event.keyCode == 27) window.close()">
+<table width="100%" border="1">
+  <!-- 第一行，显示当前操作 -->
+  <tr height="1">
+    <td id="operation" style="filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#FFCCCC', EndColorStr='#FFFFFF')">当前操作
+    </td>
+  </tr>
+  
+  <!-- 第二行，显示详细描述 -->
+  <tr height="1">
+    <td id="desc">x</td>
+  </tr>
+  
+  <!-- 第三行，显示按钮，编辑框 -->
+  <tr height="1">
+    <td><table><tr>
+      <td>
+       <button id="btn_run" style="border-color:#FF0066" onclick="Run()">运行</button><br>
+        <button onclick="Run()">跳过</button><br>
+        <button onclick="ClearLog()">清除日志</button>
+      </td>
+      <td width="1">&nbsp;&nbsp;
+     </td>
+      <td style="width:100%">
+        <table width="100%">
+         <tr height="1"><td><span id="op_param_tip">请在下面修改</span></td></tr>
+         <tr><td><textarea style="border-style: groove;  width: 100%; height: 100%; font-size: x-small;" id="op_param">x</textarea></td></tr>
+       </table>
+      </td>
+    </tr></table></td>
+  </tr>
+  
+  <!-- 第四行，显示日志 -->
+  <tr>
+    <td style="vertical-align:top">
+    <div style="height:100%" id="log" class="logwin">
+    </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
