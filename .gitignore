@@ -1,5 +1,6 @@
 *.suo
-Debug
 *.swp
-*.vcproj.*.user
 *.ncb
+*.log
+Debug
+*.vcproj.*.user

@@ -168,15 +168,19 @@ public:
 	
 	virtual bool open()
 	{
-		errno_t ret = _wfopen_s(&m_fp, m_filename.c_str(), L"a");
-		return (ret == 0);
+		m_fp = _wfsopen(m_filename.c_str(), L"wt", _SH_DENYWR);
+		return (m_fp != NULL);
 	}
 
 	virtual bool close()
 	{
-		fclose(m_fp);
-		m_fp = NULL;
-		return true;
+		if (m_fp)
+		{
+			fclose(m_fp);
+			m_fp = NULL;
+			return true;
+		}
+		return false;
 	}
 
 	virtual size_t write(const char *buf, size_t len, text_class)
@@ -189,6 +193,11 @@ public:
 	{
 		if (m_fp) return static_cast<size_t>(fwprintf(m_fp, L"%.*s", len, buf));
 		return 0;
+	}
+
+	virtual bool flush()
+	{
+		return fflush(m_fp) == 0;
 	}
 
 protected:

@@ -24,6 +24,7 @@ void main(int argc, char *[])
 	
 	// 配合其它模块使用
 	tp::log_add_device(new tp::ld_console, 0xFF, "%H:%M:%S");
+	tp::log_add_device(new tp::ld_file(L"timepp_lib.log"), 0xFF, "%Y-%m-%d %H:%M:%S");
 	tp::log_set_type_names("IVDE");
 
 	tp::log(1, tp::cz(L"program started with %d args.", argc - 1));
