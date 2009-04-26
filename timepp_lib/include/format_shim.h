@@ -45,7 +45,7 @@ private:
 	}
 	void _hex_dump(T * buf, const void * data, size_t len, size_t indent, size_t bytes_per_line)
 	{
-		const char cmap[] = "0123456789ABCDEF";
+		const T cmap[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 		const size_t ascii_pos = bytes_per_line * 3 + indent + m_gap;
 		const size_t line_size = get_line_size(bytes_per_line, indent);
 
@@ -60,7 +60,7 @@ private:
 				int v = (p[j] + 256) % 256;
 				line[indent + j*3] = cmap[v / 16];
 				line[indent + j*3+1] = cmap[v % 16];
-				line[indent + ascii_pos + j] = (v >= 0x20 && v <= 0x80)? static_cast<char>(v) : '.';
+				line[indent + ascii_pos + j] = (v >= 0x20 && v <= 0x80)? static_cast<T>(v) : static_cast<T>('.');
 			}
 			line[line_size - 1] = '\n';
 		}
