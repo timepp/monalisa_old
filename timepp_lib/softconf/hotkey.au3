@@ -9,25 +9,40 @@ Global $GS = ""
 Global $AutoItDir = ""
 
 Init()
-
-HotKeySet("#o", "Test")
-HotKeySet("#{ESC}", "SendClose")
-HotKeySet("#n", "StartNotepad")
-HotKeySet("#s", "StartCommand")
-HotKeySet("#z", "StartTC")
-HotKeySet("#w", "WndUtil")
-HotKeySet("#`", "ToggleTopmost")
-HotKeySet("#c", "SetTrans")
-HotKeySet("#{F7}", "SendCurrTime")
-HotKeySet("^!r", "_Restart")
-HotKeySet("^!e", "EditCurrentScript")
-
-Main()
+SetHotKeys()
+MainLoop()
 
 Func Init()
 	Local $asResult = StringRegExp(@AutoItExe, '^((.*\\).*\\).*$', 1)
 	$AutoItDir = $asResult[0]
 	$GS = $asResult[1]
+EndFunc
+
+Func SetHotKeys()
+	; 试验田
+	HotKeySet("#o", "Test")
+
+	; 启动程序
+	HotKeySet("#n", "StartNotepad")
+	HotKeySet("#s", "StartCommand")
+	HotKeySet("#z", "StartTC")
+
+	; 窗口工具
+	HotKeySet("#{ESC}", "SendClose")
+	HotKeySet("#{F7}", "SendCurrTime")
+	HotKeySet("#w", "WndUtil")
+	HotKeySet("#`", "ToggleTopmost")
+	HotKeySet("#c", "SetTrans")
+
+	; 脚本管理
+	HotKeySet("^!r", "_Restart")
+	HotKeySet("^!e", "EditCurrentScript")
+EndFunc
+
+Func Main()
+	While 1
+		Sleep(1000)
+	WEnd
 EndFunc
 
 Func Test()
@@ -167,9 +182,3 @@ Func Print($msg)
 	MsgBox(4096, "path", $msg)
 EndFunc
 
-
-Func Main()
-	While 1
-		Sleep(1000)
-	WEnd
-EndFunc
