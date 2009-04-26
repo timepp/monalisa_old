@@ -49,8 +49,8 @@ private:
 		const size_t ascii_pos = bytes_per_line * 3 + indent + m_gap;
 		const size_t line_size = get_line_size(bytes_per_line, indent);
 
-		const T * p = (const T *)data;
-		const T * q = p + len;
+		const unsigned char * p = static_cast<const unsigned char *>(data);
+		const unsigned char * q = p + len;
 		T * line = buf;
 		for (; p < q; p += bytes_per_line, line += line_size)
 		{

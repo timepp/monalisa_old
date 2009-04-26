@@ -31,7 +31,9 @@ void main(int argc, char *[])
 	tp::log("\ncheck main");
 	{
 		tp::log_indenter li(4);
-		tp::log(2, tp::cfmt<char, 10240>("the content of main(the first %d bytes)\n%s", 200, &tp::hex_dumpA(&main, 200)));
+		unsigned char tmp[] = "ABCDE\xcc\xdd\xee\x00""acc";
+		tp::log(2, tp::cfmt<char, 10240>("the content of array(%d bytes)\n%s", sizeof(tmp), &tp::hex_dumpA(tmp, sizeof(tmp))));
+		tp::log(2, tp::cfmt<wchar_t, 10240>(L"the content of array(%d bytes)\n%s", sizeof(tmp), &tp::hex_dump(tmp, sizeof(tmp))));
 	}
 
 	tp::log(3, base64_codec::encode_a(&main, 200).c_str());
