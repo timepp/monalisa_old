@@ -38,8 +38,8 @@ namespace tp
 	};
 
 	// 注册设备，mask表示设备能接受的日志类型组合
-	void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool auto_delete = true);
-	void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool auto_delete = true);
+	void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool show_millisec = true, bool auto_delete = true);
+	void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool show_millisec = true, bool auto_delete = true);
 	void log_unadd_device(log_device * ld);
 
 	// 设置类别名字
@@ -121,7 +121,7 @@ namespace tp
 			}
 
 			template <typename T>
-			void add_device(log_device * ld, unsigned int mask, T * time_fmt, bool show_millisec = true, bool auto_delete = true)
+			void add_device(log_device * ld, unsigned int mask, T * time_fmt, bool show_millisec, bool auto_delete)
 			{
 				device_info di = {ld, mask, time_fmt, auto_delete};
 				m_show_millisec = show_millisec;
@@ -275,14 +275,14 @@ namespace tp
 
 	} // namespace _inner
 
-	inline void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool auto_delete)
+	inline void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool show_millisec, bool auto_delete)
 	{
-		_inner::logger::instance()->add_device(ld, mask, time_fmt, auto_delete);
+		_inner::logger::instance()->add_device(ld, mask, time_fmt, show_millisec, auto_delete);
 	}
 
-	inline void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool auto_delete)
+	inline void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool show_millisec, bool auto_delete)
 	{
-		_inner::logger::instance()->add_device(ld, mask, time_fmt, auto_delete);
+		_inner::logger::instance()->add_device(ld, mask, time_fmt, show_millisec, auto_delete);
 	}
 
 	inline void log_unadd_device(log_device * ld)
