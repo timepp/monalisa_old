@@ -39,7 +39,7 @@ Func SetHotKeys()
 	HotKeySet("^!e", "EditCurrentScript")
 EndFunc
 
-Func Main()
+Func MainLoop()
 	While 1
 		Sleep(1000)
 	WEnd
