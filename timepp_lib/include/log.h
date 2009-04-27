@@ -322,6 +322,10 @@ namespace tp
 	{
 		_inner::logger::instance()->set_thread_name(name);
 	}
+	inline void log_set_thread_name(const wchar_t * name)
+	{
+		_inner::logger::instance()->set_thread_name(name);
+	}
 #endif
 	inline void log_inc_indent(int indent)
 	{

@@ -72,9 +72,9 @@ private:
 		{
 		case tc_normal: 
 		case tc_blank:  attr = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN; break;
-		case tc_header: attr = FOREGROUND_GREEN | FOREGROUND_INTENSITY; break;
-		case tc_type:   attr = FOREGROUND_RED | FOREGROUND_INTENSITY; break;
-		case tc_thread: attr = FOREGROUND_BLUE | FOREGROUND_INTENSITY; break;
+		case tc_header: attr = FOREGROUND_GREEN; break;
+		case tc_type:   attr = FOREGROUND_RED; break;
+		case tc_thread: attr = FOREGROUND_BLUE | FOREGROUND_GREEN; break;
 		case tc_other: break;
 		}
 

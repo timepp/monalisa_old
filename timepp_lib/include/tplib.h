@@ -4,7 +4,6 @@
 #include "log.h"
 #include "log_device.h"
 #include "auto_release.h"
-#include "tpsc.h"
 
 namespace tp
 {
