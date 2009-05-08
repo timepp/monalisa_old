@@ -38,22 +38,17 @@ namespace tp
 	};
 
 	// 注册设备，mask表示设备能接受的日志类型组合
-	void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool show_millisec = true, bool auto_delete = true);
 	void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool show_millisec = true, bool auto_delete = true);
 	void log_unadd_device(log_device * ld);
 
 	// 设置类别名字
-	void log_set_type_names(const char * names);
 	void log_set_type_names(const wchar_t * names);
 #ifdef TP_LOG_MULTI_THREAD
-	void log_set_thread_name(const char * name);
 	void log_set_thread_name(const wchar_t * name);
 #endif
 
 	// 记录日志，配合tp::cfmt使用
-	void log(size_t log_type, const char * text, bool flush = true);
 	void log(size_t log_type, const wchar_t * text, bool flush = true);
-	void log(const char * text, bool flush = true);
 	void log(const wchar_t * text, bool flush = true);
 
 	namespace _inner
@@ -120,8 +115,7 @@ namespace tp
 				return &_l;
 			}
 
-			template <typename T>
-			void add_device(log_device * ld, unsigned int mask, T * time_fmt, bool show_millisec, bool auto_delete)
+			void add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool show_millisec, bool auto_delete)
 			{
 				device_info di = {ld, mask, time_fmt, auto_delete};
 				m_show_millisec = show_millisec;
@@ -144,8 +138,7 @@ namespace tp
 				m_ld_set.erase(di);
 			}
 
-			template <typename T>
-			void set_type_names(const T * names)
+			void set_type_names(const wchar_t * names)
 			{
 				size_t i;
 				for (i = 0; names[i]; i++)
@@ -158,8 +151,7 @@ namespace tp
 				}
 			}
 #ifdef TP_LOG_MULTI_THREAD
-			template <typename T>
-			void set_thread_name(const T * name)
+			void set_thread_name(const wchar_t * name)
 			{
 				critical_lock lock(m_cs);
 				DWORD thread_id = ::GetCurrentThreadId();
@@ -177,15 +169,14 @@ namespace tp
 				m_indent += indent;
 			}
 			
-			template <typename T>
-			void log(size_t log_type, const T * text, bool flush = false)
+			void log(size_t log_type, const wchar_t * text, bool flush = false)
 			{
 #ifdef TP_LOG_MULTI_THREAD
 				thread_info ti = {};
 				critical_lock lock(m_cs);
-				T idfmt1[] = {'(', '%', '0', '4', 'X', ')', '\0'};
-				T idfmt2[] = {'(', '%', 's', ')', '\0'};
-				T thread_str[32];
+				wchar_t idfmt1[] = {'(', '%', '0', '4', 'X', ')', '\0'};
+				wchar_t idfmt2[] = {'(', '%', 's', ')', '\0'};
+				wchar_t thread_str[32];
 				int thread_str_len;
 				DWORD thread_id = ::GetCurrentThreadId();
 				if (thread_id != m_main_thread_id)
@@ -201,9 +192,9 @@ namespace tp
 						ti = it->second;
 					}
 
-					if (*((const T *)ti.name))
+					if (*((const wchar_t *)ti.name))
 					{
-						thread_str_len = tp::aw::snprintf_s(thread_str, 32, idfmt2, (const T*)ti.name);
+						thread_str_len = tp::aw::snprintf_s(thread_str, 32, idfmt2, (const wchar_t*)ti.name);
 					}
 					else
 					{
@@ -212,15 +203,15 @@ namespace tp
 				}
 #endif
 
-				T time_str[64];
-				T indent_str[80];
-				T blank[] = {' ', 0};
-				T cr[]    = {'\n', 0};
-				T msfmt[] = {'.','%','0','3','d','\0'};
-				T type_str[] = {static_cast<T>(m_type_name[log_type]), '|', 0};
+				wchar_t time_str[64];
+				wchar_t indent_str[80];
+				wchar_t blank[] = {' ', 0};
+				wchar_t cr[]    = {'\n', 0};
+				wchar_t msfmt[] = {'.','%','0','3','d','\0'};
+				wchar_t type_str[] = {static_cast<wchar_t>(m_type_name[log_type]), '|', 0};
 				size_t type_len = type_str[0] ? 2U : 0U;
 
-				if (m_indent > sizeof(indent_str)/sizeof(T)) m_indent = sizeof(indent_str)/sizeof(T);
+				if (m_indent > sizeof(indent_str)/sizeof(wchar_t)) m_indent = sizeof(indent_str)/sizeof(wchar_t);
 				for (int i = 0; i < m_indent; i++) indent_str[i] = ' ';
 
 				time_t ct = time(NULL);
@@ -235,13 +226,13 @@ namespace tp
 						{
 							SYSTEMTIME st;
 							GetSystemTime(&st);
-							aw::strncpy_s(time_str + time_len, 64 - time_len, cfmt<T>(msfmt, st.wMilliseconds), _TRUNCATE);
+							aw::strncpy_s(time_str + time_len, 64 - time_len, cfmt<wchar_t>(msfmt, st.wMilliseconds), _TRUNCATE);
 							time_str[63] = '\0';
 							time_len += 4;
 						}
 						
-						const T * p = text;
-						const T * q = text;
+						const wchar_t * p = text;
+						const wchar_t * q = text;
 						do
 						{
 							if (*q == '\n' || (*q == 0 && q > p))
@@ -275,11 +266,6 @@ namespace tp
 
 	} // namespace _inner
 
-	inline void log_add_device(log_device * ld, unsigned int mask, const char * time_fmt, bool show_millisec, bool auto_delete)
-	{
-		_inner::logger::instance()->add_device(ld, mask, time_fmt, show_millisec, auto_delete);
-	}
-
 	inline void log_add_device(log_device * ld, unsigned int mask, const wchar_t * time_fmt, bool show_millisec, bool auto_delete)
 	{
 		_inner::logger::instance()->add_device(ld, mask, time_fmt, show_millisec, auto_delete);
@@ -290,38 +276,19 @@ namespace tp
 		_inner::logger::instance()->unadd_device(ld);
 	}
 
-	inline void log(size_t log_type, const char * text, bool flush)
-	{
-		_inner::logger::instance()->log(log_type, text, flush);
-	}
 	inline void log(size_t log_type, const wchar_t * text, bool flush)
 	{
 		_inner::logger::instance()->log(log_type, text, flush);
-	}
-	inline void log(const char * text, bool flush)
-	{
-		_inner::logger::instance()->log(0, text, flush);
 	}
 	inline void log(const wchar_t * text, bool flush)
 	{
 		_inner::logger::instance()->log(0, text, flush);
 	}
-
-	inline void log_set_type_names(const char * names)
-	{
-		_inner::logger::instance()->set_type_names(names);
-	}
-
-
 	inline void log_set_type_names(const wchar_t * names)
 	{
 		_inner::logger::instance()->set_type_names(names);
 	}
 #ifdef TP_LOG_MULTI_THREAD
-	inline void log_set_thread_name(const char * name)
-	{
-		_inner::logger::instance()->set_thread_name(name);
-	}
 	inline void log_set_thread_name(const wchar_t * name)
 	{
 		_inner::logger::instance()->set_thread_name(name);

@@ -252,6 +252,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\tplib.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\tstring.h"
 				>
 			</File>
