@@ -41,45 +41,29 @@ public:
 		return true;
 	}
 
-	virtual size_t write(const char * buf, size_t len, text_class tc)
+	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
 	{
 		if (!is_handle_valid(m_handle)) return 0;
-
-		set_text_attr(m_handle, tc);
-		DWORD writed;
-		::WriteConsoleA(m_handle, buf, static_cast<DWORD>(len), &writed, NULL);
-		return static_cast<size_t>(writed);
-	}
-	virtual size_t write(const wchar_t * buf, size_t len, text_class tc)
-	{
-		if (!is_handle_valid(m_handle)) return 0;
-
-		set_text_attr(m_handle, tc);
+		if (m_ca.find(context_id) != m_ca.end())
+		{
+			::SetConsoleTextAttribute(m_handle, m_ca[context_id]);
+		}
 		DWORD writed;
 		::WriteConsoleW(m_handle, buf, static_cast<DWORD>(len), &writed, NULL);
 		return static_cast<size_t>(writed);
 	}
 
+	void set_context_attr(unsigned int context_id, WORD attr)
+	{
+		m_ca[context_id] = attr;
+	}
+
 protected:
 	HANDLE m_handle;
 	bool m_free_console_on_close;
+	std::map<unsigned int, WORD> m_ca;
 
 private:
-	static void set_text_attr(HANDLE handle, text_class tc)
-	{
-		WORD attr = 0;
-		switch (tc)
-		{
-		case tc_normal: 
-		case tc_blank:  attr = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN; break;
-		case tc_header: attr = FOREGROUND_GREEN; break;
-		case tc_type:   attr = FOREGROUND_RED; break;
-		case tc_thread: attr = FOREGROUND_BLUE | FOREGROUND_GREEN; break;
-		case tc_other: break;
-		}
-
-		::SetConsoleTextAttribute(handle, attr);
-	}
 	static bool is_handle_valid(HANDLE handle)
 	{
 		return (handle != NULL && handle != INVALID_HANDLE_VALUE);
@@ -96,15 +80,10 @@ public:
 
 	virtual bool open() { return true; }
 	virtual bool close() { return true; }
-	virtual size_t write(const wchar_t * buf, size_t len, text_class)
+	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
 	{
 		m_log += std::wstring(buf, len);
 		return len;
-	}
-	virtual size_t write(const char *, size_t, text_class)
-	{
-		// 当前暂时不支持
-		return 0;
 	}
 	virtual bool flush()
 	{
@@ -137,17 +116,10 @@ public:
 		return true;
 	}
 
-	virtual size_t write(const wchar_t * buf, size_t len, text_class)
+	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
 	{
 		std::wstring str(buf, len);
 		::OutputDebugStringW(str.c_str());
-		return len;
-	}
-
-	virtual size_t write(const char *buf, size_t len, text_class)
-	{
-		std::string str(buf, len);
-		::OutputDebugStringA(str.c_str());
 		return len;
 	}
 
@@ -183,13 +155,7 @@ public:
 		return false;
 	}
 
-	virtual size_t write(const char *buf, size_t len, text_class)
-	{
-		if (m_fp) return static_cast<size_t>(fprintf(m_fp, "%.*s", len, buf));
-		return 0;
-	}
-
-	virtual size_t write(const wchar_t *buf, size_t len, text_class)
+	virtual size_t write(const wchar_t *buf, size_t len, int context_id)
 	{
 		if (m_fp) return static_cast<size_t>(fwprintf(m_fp, L"%.*s", len, buf));
 		return 0;

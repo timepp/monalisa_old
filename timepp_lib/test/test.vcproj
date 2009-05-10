@@ -236,6 +236,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\log_context.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\log_device.h"
 				>
 			</File>
