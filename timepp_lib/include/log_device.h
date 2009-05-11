@@ -15,6 +15,7 @@ public:
 	ld_console()
 		: m_free_console_on_close(false)
 		, m_handle(NULL)
+		, m_default_attr(0)
 	{
 	}
 
@@ -25,7 +26,15 @@ public:
 			m_free_console_on_close = true;
 		}
 		m_handle = ::GetStdHandle(STD_OUTPUT_HANDLE);
-		return is_handle_valid(m_handle);
+		if (is_handle_valid(m_handle))
+		{
+			CONSOLE_SCREEN_BUFFER_INFO csbi;
+			GetConsoleScreenBufferInfo(m_handle, &csbi);
+			m_default_attr = csbi.wAttributes;
+			return true;
+		}
+
+		return false;
 	}
 	virtual bool close()
 	{
@@ -44,13 +53,15 @@ public:
 	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
 	{
 		if (!is_handle_valid(m_handle)) return 0;
+		WORD attr = m_default_attr;
 		if (m_ca.find(context_id) != m_ca.end())
 		{
-			::SetConsoleTextAttribute(m_handle, m_ca[context_id]);
+			attr = m_ca[context_id];
 		}
-		DWORD writed;
-		::WriteConsoleW(m_handle, buf, static_cast<DWORD>(len), &writed, NULL);
-		return static_cast<size_t>(writed);
+		::SetConsoleTextAttribute(m_handle, attr);
+		DWORD wrote;
+		::WriteConsoleW(m_handle, buf, static_cast<DWORD>(len), &wrote, NULL);
+		return static_cast<size_t>(wrote);
 	}
 
 	void set_context_attr(unsigned int context_id, WORD attr)
@@ -62,6 +73,7 @@ protected:
 	HANDLE m_handle;
 	bool m_free_console_on_close;
 	std::map<unsigned int, WORD> m_ca;
+	WORD m_default_attr;
 
 private:
 	static bool is_handle_valid(HANDLE handle)

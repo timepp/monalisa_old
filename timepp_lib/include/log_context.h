@@ -10,6 +10,9 @@ namespace tp
 		LCID_TIME = 11,
 		LCID_TEXT = 12,
 		LCID_TYPE = 13,
+		LCID_INDENT = 14,
+		LCID_TID = 15,
+		LCID_PID = 16,
 	};
 
 class lc_time : public log_context
@@ -77,6 +80,81 @@ public:
 	}
 private:
 	std::wstring m_type_str;
+};
+
+class lc_indent : public log_context
+{
+private:
+	class tls_value
+	{
+	public:
+		tls_value()	{ m_index = TlsAlloc();	}
+		~tls_value(){ TlsFree(m_index);	}
+		int get() const
+		{
+			return reinterpret_cast<int>(TlsGetValue(m_index));
+		}
+		bool set(int new_val)
+		{
+			return TlsSetValue(m_index, reinterpret_cast<LPVOID>(new_val)) == TRUE;
+		}
+	private:
+		DWORD m_index;
+	};
+	static tls_value& tls_val()
+	{
+		static tls_value tv;
+		return tv;
+	}
+public:
+	lc_indent() : log_context(LCID_INDENT)
+	{
+	}
+	std::wstring value(unsigned int type) const
+	{
+		return std::wstring(tls_val().get(), L' ');
+	}
+	static bool add_indent(int indent)
+	{
+		tls_value& tv = tls_val();
+		return tv.set(tv.get() + indent);
+	}
+};
+
+class lc_tid : public log_context
+{
+public:
+	lc_tid(const wchar_t * fmt = NULL) : log_context(LCID_TID)
+	{
+		if (!fmt) fmt = L"%04u";
+		m_fmt = fmt;
+	}
+	std::wstring value(unsigned int type) const
+	{
+		return (const wchar_t*)cz(m_fmt.c_str(), GetCurrentThreadId());
+	}
+private:
+	std::wstring m_fmt;
+	typedef std::map<DWORD, std::wstring> tns_t;
+	tns_t m_tns;
+};
+
+class lc_pid : public log_context
+{
+public:
+	lc_pid(const wchar_t * fmt = NULL) : log_context(LCID_PID)
+	{
+		if (!fmt) fmt = L"%04u";
+		m_str = (const wchar_t*)cz(fmt, GetCurrentProcessId());
+	}
+	std::wstring value(unsigned int type) const
+	{
+		return m_str;
+	}
+
+private:
+	std::wstring m_str;
+	DWORD m_pid;
 };
 
 }

@@ -98,7 +98,7 @@ namespace tp
 
 			void remove_device(log_device * ld)
 			{
-				lds_t::const_iterator it = m_lds.find(ld);
+				lds_t::iterator it = m_lds.find(ld);
 				if (it != m_lds.end())
 				{
 					const device_info& di = it->second;
@@ -163,6 +163,7 @@ namespace tp
 
 		}; // class logger
 
+
 	} // namespace _inner
 
 	inline void log_add_device(log_device * ld, unsigned int mask, bool auto_delete = true)
@@ -180,7 +181,7 @@ namespace tp
 		_inner::logger::instance()->add_context(ld, lc);
 	}
 
-	inline void log(size_t log_type, const wchar_t * text, bool flush = true)
+	inline void log(unsigned int log_type, const wchar_t * text, bool flush = true)
 	{
 		_inner::logger::instance()->log(log_type, text, flush);
 	}

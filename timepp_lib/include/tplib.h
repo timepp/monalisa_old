@@ -8,16 +8,56 @@
 
 namespace tp
 {
+	// ¸¨ÖúÀà
+	class log_indenter
+	{
+	public:
+		log_indenter(int indent) : m_indent(indent)
+		{
+			lc_indent::add_indent(m_indent);
+		}
+		~log_indenter()
+		{
+			lc_indent::add_indent(-m_indent);
+		}
+	private:
+		int m_indent;
+	};
+
+	class log_cc
+	{
+	public:
+		log_cc(log_device * ld) : m_ld(ld) {}
+		const log_cc& operator << (log_context * lc) const
+		{
+			log_add_context(m_ld, lc);
+			return *this;
+		}
+		const log_cc& operator << (const wchar_t * text) const
+		{
+			*this << new lc_text(text);
+			return *this;
+		}
+	private:
+		log_device * m_ld;
+	};
+
+
 	namespace sc
 	{
 		inline void log_default_config()
 		{
-//			tp::log_set_type_names(L"IVDE");
-//			tp::log_add_device(new tp::ld_console, 0xFF, L"%H:%M:%S");
+			ld_console * c = new ld_console;
+			c->set_context_attr(LCID_TIME, FOREGROUND_GREEN);
+			c->set_context_attr(LCID_TYPE, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+			c->set_context_attr(LCID_TID,  FOREGROUND_RED);
+			log_add_device(c, 0xFF);
+			log_cc(c) << new lc_time(L"%H:%M:%S", true) << L" " << new lc_tid << L" " << new lc_type(L"VIDE") << new lc_indent;
 		}
 		inline void log_win_error(const wchar_t * prefix)
 		{
-//			tp::log(tp::cz(L"%s: %s", prefix, &tp::edwin()));
+			tp::log(tp::cz(L"%s: %s", prefix, &tp::edwin()));
 		}
 	}
+
 }
