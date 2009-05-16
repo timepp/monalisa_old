@@ -5,6 +5,7 @@
 #include "log_device.h"
 #include "log_context.h"
 #include "auto_release.h"
+#include "algorithm.h"
 
 namespace tp
 {
@@ -45,12 +46,12 @@ namespace tp
 
 	namespace sc
 	{
-		inline void log_default_config()
+		inline void log_default_console_config()
 		{
 			ld_console * c = new ld_console;
 			c->set_context_attr(LCID_TIME, FOREGROUND_GREEN);
-			c->set_context_attr(LCID_TYPE, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-			c->set_context_attr(LCID_TID,  FOREGROUND_RED);
+			c->set_context_attr(LCID_TYPE, FOREGROUND_RED);
+			c->set_context_attr(LCID_TID,  FOREGROUND_GREEN | FOREGROUND_BLUE);
 			log_add_device(c, 0xFF);
 			log_cc(c) << new lc_time(L"%H:%M:%S", true) << L" " << new lc_tid << L" " << new lc_type(L"VIDE") << new lc_indent;
 		}
