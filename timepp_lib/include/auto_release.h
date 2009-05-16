@@ -12,6 +12,26 @@
 	const tp::_inner::call_on_ret_base &CONCAT(coeb__,__LINE__) = tp::_inner::f_coe(f, r); \
 	CONCAT(coeb__,__LINE__).dummy(); /*avoid warning */
 
+#define ON_LEAVE(statement) \
+	struct CONCAT(s_ol_, __LINE__) { \
+		~CONCAT(s_ol_, __LINE__)() { statement; } \
+	} CONCAT(v_ol_, __LINE__);
+
+#define ON_LEAVE_1(type, var, statement) \
+	struct CONCAT(s_ol_, __LINE__) { \
+		type var; \
+		CONCAT(s_ol_, __LINE__)(type v): var(v) {} \
+		~CONCAT(s_ol_, __LINE__)() { statement; } \
+	} CONCAT(v_ol_, __LINE__)(var);
+
+#define ON_LEAVE_2(type1, var1, type2, var2, statement) \
+	struct CONCAT(s_ol_, __LINE__) { \
+		type1 var1; type2 var2; \
+		CONCAT(s_ol_, __LINE__)(type1 v1, type2 v2): var1(v1), var2(v2) {} \
+		~CONCAT(s_ol_, __LINE__)() { statement; } \
+	} CONCAT(v_ol_, __LINE__)(var1, var2);
+
+
 namespace tp
 {
 
