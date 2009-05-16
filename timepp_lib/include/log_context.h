@@ -123,6 +123,8 @@ public:
 
 class lc_tid : public log_context
 {
+	typedef std::map<DWORD, std::wstring> tns_t;
+
 public:
 	lc_tid(const wchar_t * fmt = NULL) : log_context(LCID_TID)
 	{
@@ -131,12 +133,38 @@ public:
 	}
 	std::wstring value(unsigned int type) const
 	{
-		return (const wchar_t*)cz(m_fmt.c_str(), GetCurrentThreadId());
+		const tns_t& tns = get_tns();
+		DWORD tid = GetCurrentThreadId();
+		tns_t::const_iterator it = tns.find(tid);
+		if (it != tns.end())
+		{
+			return it->second;
+		}
+		else
+		{
+			return (const wchar_t*)cz(m_fmt.c_str(), tid);
+		}
 	}
+
+	static bool set_thread_name(DWORD tid, const wchar_t * name)
+	{
+		get_tns()[tid] = name;
+		return true;
+	}
+
+	static bool set_thread_name(const wchar_t * name)
+	{
+		set_thread_name(GetCurrentThreadId(), name);
+	}
+
 private:
 	std::wstring m_fmt;
-	typedef std::map<DWORD, std::wstring> tns_t;
-	tns_t m_tns;
+
+	static tns_t& get_tns()
+	{
+		static tns_t tns;
+		return tns;
+	}
 };
 
 class lc_pid : public log_context
