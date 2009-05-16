@@ -30,9 +30,12 @@ namespace tp
 	{
 	public:
 		log_context(int id) : m_id(id) {}
+		virtual ~log_context(){}
+
 		int id() const { return m_id; }
 		virtual std::wstring value(unsigned int type) const = 0;
-		virtual ~log_context(){}
+	protected:
+		log_context& operator=(const log_context&);
 	private:
 		const int m_id;
 	};
@@ -67,8 +70,8 @@ namespace tp
 			struct device_info
 			{
 				unsigned int mask;
-				bool auto_delete;
 				lcs_t lcs;
+				bool auto_delete;
 			};
 
 			typedef std::map<log_device*, device_info> lds_t;
@@ -78,8 +81,8 @@ namespace tp
 		public:
 			static logger * instance()
 			{
-				static logger _l;
-				return &_l;
+				static logger s_logger;
+				return &s_logger;
 			}
 
 			void add_device(log_device * ld, unsigned int mask, bool auto_delete)

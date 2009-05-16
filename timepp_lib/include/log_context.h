@@ -26,7 +26,7 @@ public:
 		m_show_millisec = show_millisec;
 	}
 
-	std::wstring value(unsigned int type) const
+	std::wstring value(unsigned int) const
 	{
 		wchar_t time_str[64] = {0};
 		time_t ct = time(NULL);
@@ -55,7 +55,7 @@ public:
 	{
 		if (text) m_text = text;
 	}
-	std::wstring value(unsigned int type) const
+	std::wstring value(unsigned int) const
 	{
 		return m_text;
 	}
@@ -103,16 +103,22 @@ private:
 	};
 	static tls_value& tls_val()
 	{
-		static tls_value tv;
-		return tv;
+		static tls_value s_tv;
+		return s_tv;
 	}
 public:
 	lc_indent() : log_context(LCID_INDENT)
 	{
 	}
-	std::wstring value(unsigned int type) const
+	std::wstring value(unsigned int) const
 	{
-		return std::wstring(tls_val().get(), L' ');
+		int l = tls_val().get();
+		if (l > 0)
+		{
+			return std::wstring(static_cast<unsigned int>(l), L' ');
+		}
+
+		return L"";
 	}
 	static bool add_indent(int indent)
 	{
@@ -131,7 +137,7 @@ public:
 		if (!fmt) fmt = L"%04u";
 		m_fmt = fmt;
 	}
-	std::wstring value(unsigned int type) const
+	std::wstring value(unsigned int) const
 	{
 		const tns_t& tns = get_tns();
 		DWORD tid = GetCurrentThreadId();
@@ -162,8 +168,8 @@ private:
 
 	static tns_t& get_tns()
 	{
-		static tns_t tns;
-		return tns;
+		static tns_t s_tns;
+		return s_tns;
 	}
 };
 
@@ -175,7 +181,7 @@ public:
 		if (!fmt) fmt = L"%04u";
 		m_str = (const wchar_t*)cz(fmt, GetCurrentProcessId());
 	}
-	std::wstring value(unsigned int type) const
+	std::wstring value(unsigned int) const
 	{
 		return m_str;
 	}

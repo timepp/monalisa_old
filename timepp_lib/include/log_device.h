@@ -64,16 +64,16 @@ public:
 		return static_cast<size_t>(wrote);
 	}
 
-	void set_context_attr(unsigned int context_id, WORD attr)
+	void set_context_attr(int context_id, WORD attr)
 	{
 		m_ca[context_id] = attr;
 	}
 
 protected:
 	HANDLE m_handle;
-	bool m_free_console_on_close;
-	std::map<unsigned int, WORD> m_ca;
+	std::map<int, WORD> m_ca;
 	WORD m_default_attr;
+	bool m_free_console_on_close;
 
 private:
 	static bool is_handle_valid(HANDLE handle)
@@ -92,7 +92,7 @@ public:
 
 	virtual bool open() { return true; }
 	virtual bool close() { return true; }
-	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
+	virtual size_t write(const wchar_t * buf, size_t len, int)
 	{
 		m_log += std::wstring(buf, len);
 		return len;
@@ -128,7 +128,7 @@ public:
 		return true;
 	}
 
-	virtual size_t write(const wchar_t * buf, size_t len, int context_id)
+	virtual size_t write(const wchar_t * buf, size_t len, int)
 	{
 		std::wstring str(buf, len);
 		::OutputDebugStringW(str.c_str());
@@ -167,7 +167,7 @@ public:
 		return false;
 	}
 
-	virtual size_t write(const wchar_t *buf, size_t len, int context_id)
+	virtual size_t write(const wchar_t *buf, size_t len, int)
 	{
 		if (m_fp) return static_cast<size_t>(fwprintf(m_fp, L"%.*s", len, buf));
 		return 0;
