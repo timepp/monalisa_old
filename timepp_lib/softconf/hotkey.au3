@@ -22,6 +22,7 @@ Func SetHotKeys()
 	; 试验田
 	HotKeySet("#o", "Test")
 
+
 	; 启动程序
 	HotKeySet("#n", "StartNotepad")
 	HotKeySet("#s", "StartCommand")
@@ -33,6 +34,9 @@ Func SetHotKeys()
 	HotKeySet("#w", "WndUtil")
 	HotKeySet("#`", "ToggleTopmost")
 	HotKeySet("#c", "SetTrans")
+	
+	; 游戏辅助
+	HotKeySet("!{F1}", "Diablo_Bo")
 
 	; 脚本管理
 	HotKeySet("^!r", "_Restart")
@@ -46,7 +50,19 @@ Func MainLoop()
 EndFunc
 
 Func Test()
-	MsgBox(4096, $AutoItDir, $GS)
+	If WinActive("[CLASS:Diablo II]") Then
+		Send("w")
+		Sleep(300)
+		Send("{F7}")
+		MouseClick("right")
+		Sleep(500)
+		MouseClick("right")
+		Sleep(500)
+		Send("{F8}")
+		MouseClick("right")
+		Sleep(800)
+		Send("w")
+	EndIf
 EndFunc
 
 Func SendClose()
@@ -182,3 +198,18 @@ Func Print($msg)
 	MsgBox(4096, "path", $msg)
 EndFunc
 
+Func Diablo_Bo()
+	If WinActive("[CLASS:Diablo II]") Then
+		Send("w")
+		Sleep(300)
+		Send("{F7}")
+		MouseClick("right")
+		Sleep(500)
+		MouseClick("right")
+		Sleep(500)
+		Send("{F8}")
+		MouseClick("right")
+		Sleep(800)
+		Send("w")
+	EndIf
+EndFunc
