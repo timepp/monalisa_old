@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void main(int argc, char *[])
+int wmain(int argc, wchar_t *[])
 {
 	setlocale(LC_ALL, "");
 
@@ -23,4 +23,5 @@ void main(int argc, char *[])
 		tp::log(2, tp::cz(L"the content of array(%d bytes)\n%s", sizeof(tmp), &tp::hex_dump(tmp, sizeof(tmp))));
 	}
 
+	return 0;
 }
