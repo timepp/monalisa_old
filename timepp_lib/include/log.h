@@ -14,7 +14,7 @@
 
 namespace tp
 {
-	// 日志设备
+	// receives formatted log string and write them to file, console, etc...
 	class log_device
 	{
 	public:
@@ -25,7 +25,7 @@ namespace tp
 		virtual ~log_device(){}
 	};
 
-	// 日志上下文提供者
+	// log context is one kind of info which is at the beginning of each log line
 	class log_context
 	{
 	public:
