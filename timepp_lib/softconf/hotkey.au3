@@ -36,7 +36,7 @@ Func SetHotKeys()
 	HotKeySet("#c", "SetTrans")
 	
 	; 游戏辅助
-	HotKeySet("!{F1}", "Diablo_Bo")
+	HotKeySet("#q", "Diablo_Bo")
 
 	; 脚本管理
 	HotKeySet("^!r", "_Restart")
