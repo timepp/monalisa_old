@@ -17,14 +17,14 @@
 		~CONCAT(s_ol_, __LINE__)() { statement; } \
 	} CONCAT(v_ol_, __LINE__);
 
-#define ON_LEAVE_1(type, var, statement) \
+#define ON_LEAVE_1(statement, type, var) \
 	struct CONCAT(s_ol_, __LINE__) { \
 		type var; \
 		CONCAT(s_ol_, __LINE__)(type v): var(v) {} \
 		~CONCAT(s_ol_, __LINE__)() { statement; } \
 	} CONCAT(v_ol_, __LINE__)(var);
 
-#define ON_LEAVE_2(type1, var1, type2, var2, statement) \
+#define ON_LEAVE_2(statement, type1, var1, type2, var2) \
 	struct CONCAT(s_ol_, __LINE__) { \
 		type1 var1; type2 var2; \
 		CONCAT(s_ol_, __LINE__)(type1 v1, type2 v2): var1(v1), var2(v2) {} \
