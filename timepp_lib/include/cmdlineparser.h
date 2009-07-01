@@ -76,6 +76,10 @@ public:
 		*reinterpret_cast<std::wstring*>(val) = str;
 		return true;
 	}
+	static bool cf_int(const wchar_t * str, void * val)
+	{
+		*reinterpret_cast<int*>(val) = _wtoi(str);
+	}
 
 	bool add_option(const wchar_t short_name, const wchar_t * long_name, void * addr, bool has_param = false, cvt_func * cf = 0)
 	{
@@ -94,10 +98,75 @@ public:
 		return true;
 	}
 
-	bool parse(int argc, wchar_t** argv)
+	bool parse(const wchar_t* cmd_line)
 	{
+		/** windows下对命令行的处理：参数中间有空格时，可以用引号引起来。这样就有一个如何表示引号的问题。
+		 *  使用\"来表示"。\如果在引号之前，表示那是一个普通引号。\在其它位置保持其本意
+		 */
+		std::list<std::wstring> param_list;
+		const wchar_t * p = cmd_line;
+		while(*p)
+		{
+			bool in_quote = false;
+			std::wstring param;
+			const wchar_t *q = p;
+			while (true)
+			{
+				if (q[0]== L'\\' && q[1] == L'\"')
+				{
+					param += L'\"';
+					q += 2;
+					continue;
+				}
+
+				if (q[0] == L'\"')
+				{
+					in_quote = !in_quote;
+					q++;
+					continue;
+				}
+
+				if (q[0] == L' ' && !in_quote)
+				{
+					p = q+1;
+					break;
+				}
+
+				if (q[0] == L'\0')
+				{
+					p = q;
+					break;
+				}
+
+				param += *q;
+			}
+
+			param_list.push_back(param);
+		}
+
+		int argc = static_cast<int>(param_list.size());
+		const wchar_t** argv = new const wchar_t* [argc];
+		int i = 0;
+		for (std::list<std::wstring>::const_iterator it = param_list.begin(); it != param_list.end(); ++it)
+		{
+			argv[i++] = it->c_str();
+		}
+
+		bool ret = parse(argc, argv);
+
+		delete [] argv;
+
+		return ret;
+	}
+
+	bool parse(int argc, const wchar_t* const * argv)
+	{
+		if (!argv) return false;
+
 		for (int i = 1; i < argc; i++)
 		{
+			if (!argv[i]) return false;
+
 			if (argv[i][0] != '-')
 			{
 				m_targets.push_back(argv[i]);
@@ -152,8 +221,6 @@ public:
 
 		return true;
 	}
-
-	bool parse(const wchar_t * cmdline);
 
 	std::wstring get_option(const wchar_t * opt)
 	{

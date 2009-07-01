@@ -212,6 +212,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\cmdlineparser.h"
+				>
+			</File>
+			<File
 				RelativePath=".\compilerconf.h"
 				>
 			</File>
