@@ -55,6 +55,12 @@ namespace tp
 			log_add_device(c, 0xFF);
 			log_cc(c) << new lc_time(L"%H:%M:%S", true) << L" " << new lc_tid << L" " << new lc_type(L"VIDE") << new lc_indent;
 		}
+		inline void log_default_file_config(const wchar_t * prefix)
+		{
+			ld_file * f = new ld_file(tp::cz(L"%s%s.log", prefix, lc_pid().value(0)));
+			log_add_device(f, 0xFF);
+			log_cc(f) << new lc_time(L"%Y-%m-%d %H:%M:%S", true) << L" " << new lc_tid << L" " << new lc_type(L"VIDE") << new lc_indent;
+		}
 		inline void log_win_error(const wchar_t * prefix)
 		{
 			tp::log(tp::cz(L"%s: %s", prefix, &tp::edwin()));
