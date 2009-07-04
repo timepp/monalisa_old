@@ -12,11 +12,10 @@ int wmain(int argc, wchar_t *argv[])
 	setlocale(LC_ALL, "");
 	tp::sc::log_default_console_config();
 
-	ON_LEAVE(tp::log(L"测试自动释放宏，此日志应该在程序退出时输出\n"));
-
+	ON_LEAVE(tp::log(tp::a2w("测试自动释放宏，此日志应该在程序退出时输出\n")));
 	tp::cmdline_parser parser;
 	parser.parse(argc, argv);
-	tp::log(tp::cz(L"命令行:%s", GetCommandLineW()));
+	tp::log(tp::a2w(tp::czA("命令行:%s", tp::w2a(GetCommandLineW()))));
 	for (int i = 0; i < argc; i++)
 	{
 		tp::log_indenter li(2);

@@ -143,6 +143,30 @@ private:
 	}
 };
 
+template <size_t buf_size = 1024>
+class mb_to_w : public tp::format_shim<wchar_t, buf_size>
+{
+public:
+	mb_to_w(const char* str, unsigned int cp = 0)
+	{
+		int size_req = ::MultiByteToWideChar(cp, 0, str, -1, NULL, 0);
+		resize(static_cast<size_t>(size_req));
+		::MultiByteToWideChar(cp, 0, str, -1, m_buf, m_buf_size);
+	}
+};
+
+template <size_t buf_size = 1024>
+class w_to_mb : public tp::format_shim<char, buf_size>
+{
+public:
+	w_to_mb(const wchar_t* str, unsigned int cp = 0)
+	{
+		int size_req = ::WideCharToMultiByte(cp, 0, str, -1, NULL, 0, NULL, NULL);
+		resize(static_cast<size_t>(size_req));
+		::WideCharToMultiByte(cp, 0, str, -1, m_buf, m_buf_size, NULL, NULL);
+	}
+};
+
 typedef cfmt<char>             czA;
 typedef cfmt<wchar_t>          cz;
 
@@ -155,5 +179,8 @@ typedef ed_com<char>           edcomA;
 typedef ed_com<wchar_t>        edcom;
 typedef ed_std<char>           edstdA;
 typedef ed_std<wchar_t>        edstd;
+
+typedef mb_to_w<>              a2w;
+typedef w_to_mb<>              w2a;
 
 }
