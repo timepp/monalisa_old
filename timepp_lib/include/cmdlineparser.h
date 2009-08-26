@@ -79,6 +79,7 @@ public:
 	static bool cf_int(const wchar_t * str, void * val)
 	{
 		*reinterpret_cast<int*>(val) = _wtoi(str);
+		return true;
 	}
 
 	bool add_option(const wchar_t short_name, const wchar_t * long_name, void * addr, bool has_param = false, cvt_func * cf = 0)
@@ -91,7 +92,7 @@ public:
 		po.has_param = has_param;
 		if (!has_param && !cf)
 		{
-			cf = &cmdline_parser::cf_bool;
+			po.cf = &cmdline_parser::cf_bool;
 		}
 		m_po.push_back(po);
 
@@ -239,6 +240,23 @@ public:
 		}
 
 		return L"";
+	}
+
+	std::wstring get_target(size_t index) const
+	{
+		std::list<std::wstring>::const_iterator it = m_targets.begin();
+		while (it != m_targets.end())
+		{
+			if (index == 0) return *it;
+			--index;
+			++it;
+		}
+		return L"";
+	}
+
+	size_t get_target_connt() const
+	{
+		return m_targets.size();
 	}
 
 	std::list<std::wstring> get_targets() const
