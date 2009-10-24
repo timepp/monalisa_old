@@ -46,14 +46,16 @@ namespace tp
 
 	namespace sc
 	{
-		inline void log_default_console_config()
+		inline void log_default_console_config(bool show_tid = true)
 		{
 			ld_console * c = new ld_console;
 			c->set_context_attr(LCID_TIME, FOREGROUND_GREEN);
 			c->set_context_attr(LCID_TYPE, FOREGROUND_RED);
 			c->set_context_attr(LCID_TID,  FOREGROUND_GREEN | FOREGROUND_BLUE);
 			log_add_device(c, 0xFF);
-			log_cc(c) << new lc_time(L"%H:%M:%S", true) << L" " << new lc_tid << L" " << new lc_type(L"VIDE") << new lc_indent;
+			log_cc(c) << new lc_time(L"%H:%M:%S", true);
+			if (show_tid) log_cc(c) << L" " << new lc_tid;
+			log_cc(c) << L" " << new lc_type(L"VIDE") << new lc_indent;
 		}
 		inline void log_default_file_config(const wchar_t * prefix)
 		{
