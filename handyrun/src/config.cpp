@@ -638,7 +638,7 @@ bool config::save()
 	{
 		fwprintf(fp, hc::newline_str);
 		group_info * gi = get_group_info(i);
-		save_sec(fp, tp::czw(L"group:%s", gi->name.c_str()));
+		save_sec(fp, tp::cz(L"group:%s", gi->name.c_str()));
 		b.clear();
 		bind_group(&b, gi);
 		save_key(fp, b, fw);

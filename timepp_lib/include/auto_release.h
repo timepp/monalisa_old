@@ -8,10 +8,6 @@
 #define CONCAT_INNER(a,b) a##b
 #define CONCAT(a,b) CONCAT_INNER(a,b)
 
-#define AUTO_RELEASE(r, f) \
-	const tp::_inner::call_on_ret_base &CONCAT(coeb__,__LINE__) = tp::_inner::f_coe(f, r); \
-	CONCAT(coeb__,__LINE__).dummy(); /*avoid warning */
-
 #define ON_LEAVE(statement) \
 	struct CONCAT(s_ol_, __LINE__) { \
 		~CONCAT(s_ol_, __LINE__)() { statement; } \
@@ -32,17 +28,48 @@
 	} CONCAT(v_ol_, __LINE__)(var1, var2);
 
 
+
 namespace tp
 {
 
 namespace _inner
 {
 
-// call_on_ret_base
-struct call_on_ret_base
-{
-	void dummy() const {}
-};
+	template <template <typename> class V, typename T>
+	V<T> creator_helper(T t)
+	{
+		return V<T>(t);
+	}
+
+	template <typename T1>
+	struct type_trait
+	{
+		typedef T1 arg_type;
+	};
+
+	// call_on_ret_base
+	struct call_on_ret_base
+	{
+		mutable bool is_runner;
+		call_on_ret_base() : is_runner(true) {}
+		call_on_ret_base(const call_on_ret_base& cor) : is_runner(true)
+		{
+			cor.is_runner = false;
+		}
+	};
+
+	template <typename T>
+	struct cor : public call_on_ret_base
+	{
+		T _1;
+		cor(T v) : _1(v) {}
+		cor(const cor& c) : call_on_ret_base(c) {}
+		~cor()
+		{
+			fclose(_1);
+		}
+	};
+
 // call_on_ret
 template <typename F, typename P>
 struct call_on_ret : call_on_ret_base

@@ -403,7 +403,7 @@ void show_err(const wchar_t *err, const wchar_t *result)
 
 	HWND hwnd = GetForegroundWindow();
 	if (!wnd_in_same_thread(hwnd)) hwnd = NULL;
-	MessageBox(hwnd, tp::czw(L"%s%s%s", err, gap, result), 
+	MessageBox(hwnd, tp::cz(L"%s%s%s", err, gap, result), 
 		hc::handyrun_wnd_title, MB_OK | MB_ICONWARNING);
 }
 

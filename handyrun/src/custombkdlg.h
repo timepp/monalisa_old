@@ -7,6 +7,7 @@
 #include <atlwin.h>
 #include <atlapp.h>
 #include <atlgdi.h>
+#include <atlmisc.h>
 #include <gdiplus.h>
 #include <math.h>
 
@@ -130,7 +131,7 @@ private:
 
 	LRESULT OnSize(UINT, WPARAM, LPARAM, BOOL& bHandled)
 	{
-	//	construct_image();
+		construct_image();
 		bHandled = FALSE;
 		return 0;
 	}
@@ -182,6 +183,6 @@ private:
 		
 
 		bHandled = TRUE;
-		return 0;
+		return 1;
 	}
 };

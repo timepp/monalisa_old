@@ -73,7 +73,7 @@ UINT hotkey_waker::get_vk_code(const wchar_t * vk)
 
 	const wchar_t * op = L"获取按键代码";
 
-	tp::czw fn(L"%s\\%s", gd::hr_path.c_str(), hc::fn_vkcode);
+	tp::cz fn(L"%s\\%s", gd::hr_path.c_str(), hc::fn_vkcode);
 
 	FILE * fp;
 	if (_wfopen_s(&fp, fn, L"r, ccs=UNICODE") != 0)

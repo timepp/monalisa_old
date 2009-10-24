@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="WTL;&quot;$(SolutionDir)\..\..\timepp_lib\trunk\include&quot;"
+				AdditionalIncludeDirectories="WTL;&quot;$(SolutionDir)\..\timepp_lib\include&quot;"
 				PreprocessorDefinitions="_WIN32_WINNT=0x0500;_WIN32_IE=0x0500"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
